@@ -25,19 +25,28 @@
             </li>
 
             <li class="nav-item">
-              <a href="sejarah.php" class="nav-link <?php if ($title == 'Sejarah'){echo 'active';} ?>">
-                <i class="nav-icon fas fa-history"></i>
+              <a href="informasi.php" class="nav-link <?php if ($title == 'Informasi'){echo 'active';} ?>">
+                <i class="nav-icon fas fa-info-circle"></i>
                 <p>
-                  Sejarah
+                  Informasi
                 </p>
               </a>
             </li>
 
             <li class="nav-item">
-              <a href="informasi.php" class="nav-link <?php if ($title == 'Informasi'){echo 'active';} ?>">
-                <i class="nav-icon fas fa-info-circle"></i>
+              <a href="fasilitas.php" class="nav-link <?php if ($title == 'Fasilitas'){echo 'active';} ?>">
+                <i class="nav-icon fas fa-phone"></i>
                 <p>
-                  Informasi
+                  Fasilitas
+                </p>
+              </a>
+            </li>
+
+            <li class="nav-item">
+              <a href="sejarah.php" class="nav-link <?php if ($title == 'Sejarah'){echo 'active';} ?>">
+                <i class="nav-icon fas fa-history"></i>
+                <p>
+                  Sejarah
                 </p>
               </a>
             </li>
@@ -50,7 +59,6 @@
                 </p>
               </a>
             </li>
-
 
             <!-- Batas Menu Sistem Layanan Administrasi -->
             <li class="nav-header">Layanan Administrasi</li>
