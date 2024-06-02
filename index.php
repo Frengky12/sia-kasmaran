@@ -1,5 +1,6 @@
 <?php
 $title = "SIA-Kasmaran";
+$page = 'home';
 
 
 include "skeleton/header.php";
@@ -80,7 +81,7 @@ $informasi = query("SELECT * FROM informasi WHERE deletedAt IS NULL");
           <h5><b>Misi</b></h5>
           <p><?= potongBerita($visi_misi['misi'], 150); ?></p><br>
 
-          <a href="#" class="btn btn-sm btn-outline-primary">Selengkapnya...</a>
+          <a href="profil-desa.php" class="btn btn-sm btn-outline-primary">Selengkapnya...</a>
         </div>
 
         <div class="row content">
@@ -154,7 +155,7 @@ $informasi = query("SELECT * FROM informasi WHERE deletedAt IS NULL");
               <h4><a href=""><?= $berita['judul']; ?></a></h4>
               <p><?= potongBerita( $berita['isi'], 230) ?></p>
               
-              <a href="#" class="btn btn-sm btn-outline-primary mt-4">Selengkapnya...</a>
+              <a href="berita.php?id=<?= $berita['id'] ?>" class="btn btn-sm btn-outline-primary mt-4">Selengkapnya...</a>
             </div>
           </div>
           <?php endforeach ?>

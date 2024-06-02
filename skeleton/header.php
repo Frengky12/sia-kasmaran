@@ -73,6 +73,7 @@ include './admin/skeleton/config/controller.php';
       <!-- <a href="index.html" class="logo"><img src="skeleton/assets/img/logo.png" alt="" class="img-fluid"></a>-->
 
       <nav id="navbar" class="navbar">
+        <?php if ($title == 'SIA-Kasmaran') { ?>
         <ul>
           <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
           <li><a class="nav-link scrollto" href="#about">About</a></li>
@@ -82,6 +83,14 @@ include './admin/skeleton/config/controller.php';
           <li><a class="nav-link scrollto" href="#kontak">Kontak</a></li>
           <li><a class="nav-link scrollto" href="../sia-kasmaran/admin/login.php">Login</a></li>
         </ul>
+      <?php } else {?>
+
+        <ul>
+          <li><a class="nav-link scrollto active" href="index.php">Home</a></li>
+          <li><a class="nav-link scrollto" href="../sia-kasmaran/admin/login.php">Login</a></li>
+        </ul>
+
+         <?php } ?>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
 
