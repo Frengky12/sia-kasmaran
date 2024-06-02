@@ -2,11 +2,7 @@
 $title = 'Akun';
 include 'skeleton/header.php';
 
-<<<<<<< HEAD
 $users = query("SELECT * FROM user WHERE deletedAt IS NULL");
-=======
-$users = query("SELECT * FROM user WHERE deletedAt IS NULL")
->>>>>>> origin/master
 ?>
 
     <!-- Content Wrapper. Contains page content -->
@@ -54,11 +50,7 @@ $users = query("SELECT * FROM user WHERE deletedAt IS NULL")
                       <th>Email</th>
                       <th>Level</th>
                       <th>Foto</th>
-<<<<<<< HEAD
                       <th>Terakhir Login</th>
-=======
-                      <th>Tekakhir Login</th>
->>>>>>> origin/master
                       <th>Aksi</th>
                     </tr>
                   </thead>

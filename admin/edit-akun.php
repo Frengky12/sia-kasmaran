@@ -9,20 +9,12 @@ $user = query("SELECT * FROM user WHERE id = $id")[0];
     if (isset($_POST['submit'])) {
        if (edit_akun($_POST) > 0) {
            echo "<script>
-<<<<<<< HEAD
                        alert('Data Administrator Berhasil Diupdate');
-=======
-                       alert('Data Administrator Berhasil Ditambahkan');
->>>>>>> origin/master
                        document.location.href = 'akun.php';
                </script>";
        } else {
            echo "<script>
-<<<<<<< HEAD
                        alert('Data Administrator Gagal Diupdate');
-=======
-                       alert('Data Administrator Gagal Ditambahkan');
->>>>>>> origin/master
                        document.location.href = 'edit-akun.php?id=$id';
                </script>";
        }

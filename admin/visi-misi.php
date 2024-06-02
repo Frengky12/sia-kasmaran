@@ -3,15 +3,9 @@
 $title = 'Visi Misi';
 include 'skeleton/header.php';
 
-<<<<<<< HEAD
 $visi_misi = query("SELECT vm.*, COALESCE(u.nama,'-') AS namaUpdatedBy FROM visi_misi vm LEFT JOIN user u ON u.id = vm.updatedBy WHERE 1=1")[0];
 
 if (isset($_POST['submit'])) {
-=======
-$visi_misi = query("SELECT vm.*, COALESCE(u.nama,'-') AS namaUpdatedBy FROM visi_misi vm LEFT JOIN user u ON u.id = vm.updatedBy WHERE u.deletedAt IS NULL")[0];
-
-if (isset($_POST['update'])) {
->>>>>>> origin/master
     if (update_visi_misi($_POST) > 0) {
         echo "<script>
             alert('Data Berhasil Diupdate...');
@@ -104,29 +98,17 @@ if (isset($_POST['update'])) {
 <div class="modal fade" id="modalUbah" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
-<<<<<<< HEAD
       <div class="modal-header bg-secondary text-white">
-=======
-      <div class="modal-header bg-success text-white">
->>>>>>> origin/master
         <h5 class="modal-title" id="exampleModalLabel"><i class="fas fa-edit"></i> Update Visi & Misi</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
-<<<<<<< HEAD
 
                         <form action="" method="post">
                             <input type="hidden" name="id" value="<?= $visi_misi['id']; ?>">
                             <input type="hidden" name="updatedBy" value="<?= $_SESSION['id']; ?>">
-=======
-         <div class="modal-body">
-
-                        <form action="" method="post">
-                            <input type="text" name="id" value="<?= $visi_misi['id']; ?>">
-                            <input type="text" name="updatedBy" value="<?= $_SESSION['id']; ?>">
->>>>>>> origin/master
 
                             <div class="form-group">
                               <label for="visi">Visi</label>
@@ -140,18 +122,10 @@ if (isset($_POST['update'])) {
 
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary text-white btn-sm" data-dismiss="modal">Batal</button>
-<<<<<<< HEAD
                                 <button type="submit" name="submit" class="btn btn-primary text-white btn-sm">Update</button>
                             </div>
                         </form>
                     </div>
-=======
-                                <button type="submit" name="update" class="btn btn-primary text-white btn-sm">Update</button>
-                            </div>
-                        </form>
-                    </div>
-      </div>
->>>>>>> origin/master
     </div>
   </div>
 </div>

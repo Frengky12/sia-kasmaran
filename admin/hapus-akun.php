@@ -37,11 +37,7 @@ if (hapus_akun($id_akun) > 0) {
         setTimeout( 
         Swal.fire({
                 icon: 'error',
-<<<<<<< HEAD
                 text: 'Data akun gagal dihapus...'
-=======
-                text: 'Data akun berhasil dihapus...'
->>>>>>> origin/master
             })
     , 3000);
             window.location.href = 'akun.php';
