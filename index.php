@@ -173,7 +173,13 @@ $informasi = query("SELECT * FROM informasi WHERE deletedAt IS NULL");
 
         <div class="section-title">
           <h2>Layanan Administrasi</h2>
+        </div>
+
+        <div class="card mb-2">
+            <div class="card-body">  
+            <h5><b>Panduan Layanan Administrasi</b></h5>
           <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+            </div>
         </div>
 
       <div class="row">
@@ -186,7 +192,7 @@ $informasi = query("SELECT * FROM informasi WHERE deletedAt IS NULL");
                 </svg>
                 <i class="bx bx-file"></i>
               </div>
-              <h4><a href=""><?= $srt['nama_surat']; ?></a></h4>
+              <h4><a href="form-surat.php?id=<?= $srt['id']; ?>"><?= $srt['nama_surat']; ?></a></h4>
               <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore</p>
             </div>
           </div>
