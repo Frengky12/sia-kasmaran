@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 04, 2024 at 04:27 PM
+-- Generation Time: Jun 05, 2024 at 04:42 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -118,6 +118,41 @@ INSERT INTO `sejarah` (`id`, `judul`, `isi`, `picture`, `updatedAt`, `updatedBy`
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `surat`
+--
+
+CREATE TABLE `surat` (
+  `id` int(11) NOT NULL,
+  `id_jenis` int(11) NOT NULL,
+  `nama` varchar(100) NOT NULL,
+  `email` varchar(50) NOT NULL,
+  `file` varchar(100) NOT NULL,
+  `no_hp` varchar(15) NOT NULL,
+  `tempat_lahir` varchar(50) NOT NULL,
+  `tanggal_lahir` varchar(20) NOT NULL,
+  `pekerjaan` varchar(100) NOT NULL,
+  `agama` varchar(20) NOT NULL,
+  `jenKel` varchar(2) NOT NULL,
+  `alamat` varchar(150) NOT NULL,
+  `keperluan_surat` varchar(200) DEFAULT NULL,
+  `nama_usaha` varchar(100) DEFAULT NULL,
+  `alamat_usaha` varchar(200) DEFAULT NULL,
+  `status` varchar(10) NOT NULL,
+  `penyebab_kematian` varchar(150) DEFAULT NULL,
+  `tanggal_kematian` varchar(20) DEFAULT NULL,
+  `lokasi_kematian` varchar(200) DEFAULT NULL,
+  `nama_ortu_lk` varchar(100) DEFAULT NULL,
+  `nama_ortu_pr` varchar(100) DEFAULT NULL,
+  `createdAt` datetime NOT NULL DEFAULT current_timestamp(),
+  `validatedAt` datetime DEFAULT NULL,
+  `validatedBy` int(11) DEFAULT NULL,
+  `approvedAt` datetime DEFAULT NULL,
+  `approvedBy` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `user`
 --
 
@@ -139,7 +174,7 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id`, `nama`, `email`, `username`, `password`, `level`, `foto`, `createdAt`, `lastLogin`, `deletedAt`) VALUES
-(1, 'Frengky', 'frengkysky645@gmail.com', 'frengky', '$2y$10$QjmpG07nIUgBQ9J/sluRCO/6kGigdnDfhYbjKqW.rpCKCGiKgnMv.', 1, '66091c1b53ab9.jpg', '2024-03-30 12:07:33', '2024-06-04 20:00:10', NULL),
+(1, 'Frengky', 'frengkysky645@gmail.com', 'frengky', '$2y$10$QjmpG07nIUgBQ9J/sluRCO/6kGigdnDfhYbjKqW.rpCKCGiKgnMv.', 1, '66091c1b53ab9.jpg', '2024-03-30 12:07:33', '2024-06-05 21:22:59', NULL),
 (2, 'Anggraini Agustin Saputri', 'anggraini@gmail.com', 'anggraini', '$2y$10$qe36y7b7UDh3vQKUB1W8PungWP.pAluE7E0N8M7Hb.rculapCS41e', 2, '6607f01510382.jpg', '2024-03-30 17:57:25', NULL, NULL),
 (3, 'Kades', 'Rozy@gmail.com', 'Rozy', '$2y$10$rnZdR/9/VVyNPjopjLNAu.AxpZ4GKCO4EGQJnentTx7E5X7bjvvuS', 1, '6608db02c90dd.jpg', '2024-03-31 10:39:46', NULL, '2024-03-31 11:21:47'),
 (4, 'Kades', 'adada@gmail.com', 'adada', '$2y$10$YQAoqZdvmUlo4t2FOLWjSe4PQm9pe0ECAL5yinKVvnvXCC1SosEJm', 2, '6608dc2d50228.jpg', '2024-03-31 10:44:45', NULL, '2024-03-31 11:20:42'),
@@ -208,6 +243,12 @@ ALTER TABLE `sejarah`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `surat`
+--
+ALTER TABLE `surat`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `user`
 --
 ALTER TABLE `user`
@@ -246,6 +287,12 @@ ALTER TABLE `ms_surat`
 --
 ALTER TABLE `sejarah`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `surat`
+--
+ALTER TABLE `surat`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `user`
