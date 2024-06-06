@@ -6,6 +6,21 @@ include "skeleton/header.php";
 
 $id = (int)$_GET['id'];
 $surat = query("SELECT * FROM `ms_surat` WHERE 1=1 AND id = $id")[0];
+
+if (isset($_POST['submit-sktm'])) {
+  if (insert_surat_sktm($_POST) > 0) {
+      echo "<script>
+      alert('Data berhail ditambahkan...');
+          document.location.href = 'akun.php';
+        </script>";
+  } else {
+      echo "<script>
+      alert('Data berhail ditambahkan...');
+          document.location.href = 'tambah-akun.php';
+        </script>";
+  }
+}
+
  ?>
 
 <main id="main">
@@ -36,6 +51,7 @@ $surat = query("SELECT * FROM `ms_surat` WHERE 1=1 AND id = $id")[0];
               <?php if ($surat['id'] == 1) { ?>
                 <div class="card-body">
                 <form action="" method="post" enctype="multipart/form-data">
+                  <input type="hidden" name="id_surat" value="<?= $surat['id'] ?>">
                   <div class="row">
                     <div class="form-group col-lg-6 mt-4">
                       <label for="nik"><b>NIK</b></label>
@@ -102,8 +118,8 @@ $surat = query("SELECT * FROM `ms_surat` WHERE 1=1 AND id = $id")[0];
                     </div>
 
                     <div class="form-group col-lg-6 mt-4">
-                      <label for="telepon"><b>Telepon</b></label>
-                      <input type="text" name="telepon" id="telepon" class="form-control" required>
+                      <label for="no_hp"><b>Telepon</b></label>
+                      <input type="text" name="no_hp" id="no_hp" class="form-control" required>
                       <small class="text-danger">*No HP/Wa yang bisa dihubungi</small>
                     </div>
                   </div>
@@ -126,7 +142,12 @@ $surat = query("SELECT * FROM `ms_surat` WHERE 1=1 AND id = $id")[0];
 
 
                 <div class="card-footer mt-4">
-                  <button type="submit" name="submit" class="btn btn-sm btn-primary float-right">Submit</button>
+                  <div class="d-flex justify-content-end">
+
+                    <button type="submit" name="submit-sktm" class="btn btn-sm btn-primary">
+                      Submit
+                    </button>
+                  </div>
                 </div>
 
                 </form>

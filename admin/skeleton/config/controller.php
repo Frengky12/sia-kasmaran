@@ -220,6 +220,7 @@ function hapus_informasi($id, $id_akun)
     return mysqli_affected_rows($db);
 }
 
+
 function potongBerita($berita, $panjangMax = 100) {
     if (strlen($berita) > $panjangMax) {
         $potonganBerita = substr($berita, 0, $panjangMax) . '...';
@@ -227,6 +228,40 @@ function potongBerita($berita, $panjangMax = 100) {
     } else {
         return $berita;
     }
+}
+
+function insert_surat_sktm($post) 
+{
+    global $db;
+
+    $id_jenis = $post['id_surat'];
+    $nama = $post['nama'];
+    $email = $post['email'];
+    $no_hp = $post['no_hp'];
+    $tempat_lahir = $post['tempat_lahir'];
+    $tanggal_lahir = $post['tanggal_lahir'];
+    $pekerjaan = $post['pekerjaan'];
+    $agama = $post['agama'];
+    $jenKel = $post['jenKel'];
+    $alamat = $post['alamat'];
+    $nama = $post['nama'];
+    $nama = $post['nama'];
+    $nama = $post['nama'];
+    $nama = $post['nama'];
+    $nama = $post['nama'];
+
+    $file = upload_file_surat('sktm');
+    if(!$file){
+        return false ;
+    };
+
+
+    $query = "INSERT INTO `surat` (`id_jenis`, `nama`, `email`, `file`, `no_hp`, `tempat_lahir`, `tanggal_lahir`, `pekerjaan`, `agama`, `jenKel`, `alamat`, `createdAt`) VALUES ('$id_jenis','$nama', '$email', '$file', '$no_hp', '$tempat_lahir', '$tanggal_lahir', '$pekerjaan', '$agama', '$jenKel', '$alamat', CURRENT_TIMESTAMP)";
+
+    mysqli_query($db, $query);
+
+    return mysqli_affected_rows($db);
+
 }
 
 
@@ -351,5 +386,47 @@ function upload_foto_berita()
 
     // memindahkan data yg di upload ke folder file
     move_uploaded_file($tmpName, './public/image/berita/' . $namaFilebaru);
+    return $namaFilebaru;
+}
+
+
+function upload_file_surat($type)
+{
+    $namaFile = $_FILES['file']['name'];
+    $ukuranFile = $_FILES['file']['size'];
+    $error = $_FILES['file']['error'];
+    $tmpName = $_FILES['file']['tmp_name'];
+
+
+    // cek format file yang di upload
+    $ekstensiFileValid = ['pdf','jpg', 'png', 'jpeg'];
+    $ekstensiFile = explode('.', $namaFile);
+    $ekstensiFile = strtolower(end($ekstensiFile));
+
+    if(!in_array($ekstensiFile, $ekstensiFileValid)){
+        echo "<script> 
+                alert('File Yang Anda Upload Salah !'); 
+                console.log('Masuk A');
+                document.location.href = 'sejarah.php' ;
+            </script>";
+        die();
+    }
+
+    // jika ukuran melampaui batas maksimal
+    if ($ukuranFile > 2048000) { // batas 2 MB
+        echo "<script>
+                alert('Ukuran File Terlalu Besar');
+                document.location.href = 'sejarah.php';
+            </script>";
+        die();
+    }
+
+    // ubah nama file yang di upload
+    $namaFilebaru = $type . '-' . uniqid();
+    $namaFilebaru .= '.';
+    $namaFilebaru .= $ekstensiFile;
+
+    // memindahkan data yg di upload ke folder file
+    move_uploaded_file($tmpName, './admin/public/surat/' . $namaFilebaru);
     return $namaFilebaru;
 }

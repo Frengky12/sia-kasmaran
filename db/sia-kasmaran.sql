@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 05, 2024 at 04:42 PM
+-- Generation Time: Jun 06, 2024 at 05:24 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -150,6 +150,13 @@ CREATE TABLE `surat` (
   `approvedBy` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `surat`
+--
+
+INSERT INTO `surat` (`id`, `id_jenis`, `nama`, `email`, `file`, `no_hp`, `tempat_lahir`, `tanggal_lahir`, `pekerjaan`, `agama`, `jenKel`, `alamat`, `keperluan_surat`, `nama_usaha`, `alamat_usaha`, `status`, `penyebab_kematian`, `tanggal_kematian`, `lokasi_kematian`, `nama_ortu_lk`, `nama_ortu_pr`, `createdAt`, `validatedAt`, `validatedBy`, `approvedAt`, `approvedBy`) VALUES
+(1, 1, 'Frengky', 'frengkysky645@gmail.com', 'sktm-6661d43031fa0.pdf', '1212', 'Rantau Panjang', '2024-06-06', '1212', '1212', 'L', 'asda', NULL, NULL, NULL, '', NULL, NULL, NULL, NULL, NULL, '2024-06-06 22:22:24', NULL, NULL, NULL, NULL);
+
 -- --------------------------------------------------------
 
 --
@@ -292,7 +299,7 @@ ALTER TABLE `sejarah`
 -- AUTO_INCREMENT for table `surat`
 --
 ALTER TABLE `surat`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `user`
