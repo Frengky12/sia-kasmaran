@@ -292,6 +292,42 @@ function insert_surat_domisili($post)
 }
 
 
+function insert_surat_usaha($post) 
+{
+    global $db;
+
+    $id_jenis = $post['id_surat'];
+    $nama = $post['nama'];
+    $email = $post['email'];
+    $no_hp = $post['no_hp'];
+    $tempat_lahir = $post['tempat_lahir'];
+    $tanggal_lahir = $post['tanggal_lahir'];
+    $pekerjaan = $post['pekerjaan'];
+    $agama = $post['agama'];
+    $jenKel = $post['jenKel'];
+    $alamat = $post['alamat'];
+    $status = $post['status'];
+    $keperluan_surat = $post['keperluan_surat'];
+    $nama_usaha = $post['nama_usaha'];
+    $alamat_usaha = $post['alamat_usaha'];
+
+    $file = upload_file_surat('sku');
+    if(!$file){
+        return false ;
+    };
+
+
+    $query = "INSERT INTO `surat` (`id_jenis`, `nama`, `email`, `file`, `no_hp`, `tempat_lahir`, `tanggal_lahir`, `pekerjaan`, `agama`, `jenKel`, `alamat`,`status`,`keperluan_surat`,`nama_usaha`,`alamat_usaha`,`createdAt`)
+    VALUES 
+    ('$id_jenis','$nama', '$email', '$file', '$no_hp', '$tempat_lahir', '$tanggal_lahir', '$pekerjaan', '$agama', '$jenKel', '$alamat','$status','$keperluan_surat','$nama_usaha','$alamat_usaha', CURRENT_TIMESTAMP)";
+
+    mysqli_query($db, $query);
+
+    return mysqli_affected_rows($db);
+
+}
+
+
 function upload_foto()
 {
     $namaFile = $_FILES['file']['name'];

@@ -35,6 +35,20 @@ if (isset($_POST['surat-domisili'])) {
   }
 }
 
+if (isset($_POST['surat-sku'])) {
+  if (insert_surat_usaha($_POST) > 0) {
+      echo "<script>
+      alert('Data berhail ditambahkan...');
+          document.location.href = 'index.php';
+        </script>";
+  } else {
+      echo "<script>
+      alert('Data berhail ditambahkan...');
+          document.location.href = 'form-surat.php';
+        </script>";
+  }
+}
+
  ?>
 
 <main id="main">
@@ -172,7 +186,7 @@ if (isset($_POST['surat-domisili'])) {
                 <div class="card-body">
                 <form action="" method="post" enctype="multipart/form-data">
                 <input type="hidden" name="id_surat" value="<?= $surat['id'] ?>">
-                
+
                   <div class="row">
                     <div class="form-group col-lg-6 mt-4">
                       <label for="nik"><b>NIK</b></label>
@@ -273,6 +287,8 @@ if (isset($_POST['surat-domisili'])) {
               <?php if ($surat['id'] == 3) { ?>
                 <div class="card-body">
                 <form action="" method="post" enctype="multipart/form-data">
+                <input type="hidden" name="id_surat" value="<?= $surat['id'] ?>">
+
                   <div class="row">
                     <div class="form-group col-lg-6 mt-4">
                       <label for="nik"><b>NIK</b></label>
@@ -348,8 +364,8 @@ if (isset($_POST['surat-domisili'])) {
                   
                   <div class="row">
                     <div class="form-group col-lg-6 mt-4">
-                      <label for="keperluan"><b>Keperluan Surat</b></label>
-                      <input type="text" name="keperluan" id="keperluan" class="form-control" required>
+                      <label for="keperluan_surat"><b>Keperluan Surat</b></label>
+                      <input type="text" name="keperluan_surat" id="keperluan_surat" class="form-control" required>
                     </div>
 
                     <div class="form-group col-lg-6 mt-4">
@@ -381,7 +397,7 @@ if (isset($_POST['surat-domisili'])) {
 
 
                 <div class="card-footer mt-4">
-                  <button type="submit" name="submit" class="btn btn-sm btn-primary float-right">Submit</button>
+                  <button type="submit" name="surat-sku" class="btn btn-sm btn-primary float-right">Submit</button>
                 </div>
 
                 </form>
