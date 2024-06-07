@@ -11,12 +11,26 @@ if (isset($_POST['submit-sktm'])) {
   if (insert_surat_sktm($_POST) > 0) {
       echo "<script>
       alert('Data berhail ditambahkan...');
-          document.location.href = 'akun.php';
+          document.location.href = 'index.php';
         </script>";
   } else {
       echo "<script>
       alert('Data berhail ditambahkan...');
-          document.location.href = 'tambah-akun.php';
+          document.location.href = 'form-surat.php';
+        </script>";
+  }
+}
+
+if (isset($_POST['surat-domisili'])) {
+  if (insert_surat_domisili($_POST) > 0) {
+      echo "<script>
+      alert('Data berhail ditambahkan...');
+          document.location.href = 'index.php';
+        </script>";
+  } else {
+      echo "<script>
+      alert('Data berhail ditambahkan...');
+          document.location.href = 'form-surat.php';
         </script>";
   }
 }
@@ -157,6 +171,8 @@ if (isset($_POST['submit-sktm'])) {
               <?php if ($surat['id'] == 2) { ?>
                 <div class="card-body">
                 <form action="" method="post" enctype="multipart/form-data">
+                <input type="hidden" name="id_surat" value="<?= $surat['id'] ?>">
+                
                   <div class="row">
                     <div class="form-group col-lg-6 mt-4">
                       <label for="nik"><b>NIK</b></label>
@@ -223,8 +239,8 @@ if (isset($_POST['submit-sktm'])) {
                     </div>
 
                     <div class="form-group col-lg-6 mt-4">
-                      <label for="telepon"><b>Telepon</b></label>
-                      <input type="text" name="telepon" id="telepon" class="form-control" required>
+                      <label for="no_hp"><b>Telepon</b></label>
+                      <input type="text" name="no_hp" id="no_hp" class="form-control" required>
                       <small class="text-danger">*No HP/Wa yang bisa dihubungi</small>
                     </div>
                   </div>
@@ -247,7 +263,7 @@ if (isset($_POST['submit-sktm'])) {
 
 
                 <div class="card-footer mt-4">
-                  <button type="submit" name="submit" class="btn btn-sm btn-primary float-right">Submit</button>
+                  <button type="submit" name="surat-domisili" class="btn btn-sm btn-primary float-right">Submit</button>
                 </div>
 
                 </form>
@@ -323,8 +339,8 @@ if (isset($_POST['submit-sktm'])) {
                     </div>
 
                     <div class="form-group col-lg-6 mt-4">
-                      <label for="telepon"><b>Telepon</b></label>
-                      <input type="text" name="telepon" id="telepon" class="form-control" required>
+                      <label for="no_hp"><b>Telepon</b></label>
+                      <input type="text" name="no_hp" id="no_hp" class="form-control" required>
                       <small class="text-danger">*No HP/Wa yang bisa dihubungi</small>
                     </div>
                   </div>
@@ -441,8 +457,8 @@ if (isset($_POST['submit-sktm'])) {
                     </div>
 
                     <div class="form-group col-lg-6 mt-4">
-                      <label for="telepon"><b>Telepon</b></label>
-                      <input type="text" name="telepon" id="telepon" class="form-control" required>
+                      <label for="no_hp"><b>Telepon</b></label>
+                      <input type="text" name="no_hp" id="no_hp" class="form-control" required>
                       <small class="text-danger">*No HP/Wa yang bisa dihubungi</small>
                     </div>
                   </div>
@@ -560,8 +576,8 @@ if (isset($_POST['submit-sktm'])) {
                     </div>
 
                     <div class="form-group col-lg-6 mt-4">
-                      <label for="telepon"><b>Telepon</b></label>
-                      <input type="text" name="telepon" id="telepon" class="form-control" required>
+                      <label for="no_hp"><b>Telepon</b></label>
+                      <input type="text" name="no_hp" id="no_hp" class="form-control" required>
                       <small class="text-danger">*No HP/Wa yang bisa dihubungi</small>
                     </div>
                   </div>

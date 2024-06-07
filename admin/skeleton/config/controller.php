@@ -244,11 +244,7 @@ function insert_surat_sktm($post)
     $agama = $post['agama'];
     $jenKel = $post['jenKel'];
     $alamat = $post['alamat'];
-    $nama = $post['nama'];
-    $nama = $post['nama'];
-    $nama = $post['nama'];
-    $nama = $post['nama'];
-    $nama = $post['nama'];
+    $status = $post['status'];
 
     $file = upload_file_surat('sktm');
     if(!$file){
@@ -256,7 +252,38 @@ function insert_surat_sktm($post)
     };
 
 
-    $query = "INSERT INTO `surat` (`id_jenis`, `nama`, `email`, `file`, `no_hp`, `tempat_lahir`, `tanggal_lahir`, `pekerjaan`, `agama`, `jenKel`, `alamat`, `createdAt`) VALUES ('$id_jenis','$nama', '$email', '$file', '$no_hp', '$tempat_lahir', '$tanggal_lahir', '$pekerjaan', '$agama', '$jenKel', '$alamat', CURRENT_TIMESTAMP)";
+    $query = "INSERT INTO `surat` (`id_jenis`, `nama`, `email`, `file`, `no_hp`, `tempat_lahir`, `tanggal_lahir`, `pekerjaan`, `agama`, `jenKel`, `alamat`,`status`, `createdAt`) VALUES ('$id_jenis','$nama', '$email', '$file', '$no_hp', '$tempat_lahir', '$tanggal_lahir', '$pekerjaan', '$agama', '$jenKel', '$alamat','$status', CURRENT_TIMESTAMP)";
+
+    mysqli_query($db, $query);
+
+    return mysqli_affected_rows($db);
+
+}
+
+
+function insert_surat_domisili($post) 
+{
+    global $db;
+
+    $id_jenis = $post['id_surat'];
+    $nama = $post['nama'];
+    $email = $post['email'];
+    $no_hp = $post['no_hp'];
+    $tempat_lahir = $post['tempat_lahir'];
+    $tanggal_lahir = $post['tanggal_lahir'];
+    $pekerjaan = $post['pekerjaan'];
+    $agama = $post['agama'];
+    $jenKel = $post['jenKel'];
+    $alamat = $post['alamat'];
+    $status = $post['status'];
+
+    $file = upload_file_surat('skd');
+    if(!$file){
+        return false ;
+    };
+
+
+    $query = "INSERT INTO `surat` (`id_jenis`, `nama`, `email`, `file`, `no_hp`, `tempat_lahir`, `tanggal_lahir`, `pekerjaan`, `agama`, `jenKel`, `alamat`,`status`, `createdAt`) VALUES ('$id_jenis','$nama', '$email', '$file', '$no_hp', '$tempat_lahir', '$tanggal_lahir', '$pekerjaan', '$agama', '$jenKel', '$alamat','$status', CURRENT_TIMESTAMP)";
 
     mysqli_query($db, $query);
 
