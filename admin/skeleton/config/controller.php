@@ -328,6 +328,42 @@ function insert_surat_usaha($post)
 }
 
 
+function insert_surat_kematian($post) 
+{
+    global $db;
+
+    $id_jenis = $post['id_surat'];
+    $nama = $post['nama'];
+    $email = $post['email'];
+    $no_hp = $post['no_hp'];
+    $tempat_lahir = $post['tempat_lahir'];
+    $tanggal_lahir = $post['tanggal_lahir'];
+    $pekerjaan = $post['pekerjaan'];
+    $agama = $post['agama'];
+    $jenKel = $post['jenKel'];
+    $alamat = $post['alamat'];
+    $status = $post['status'];
+    $penyebab_kematian = $post['penyebab_kematian'];
+    $tanggal_kematian = $post['tanggal_kematian'];
+    $lokasi_kematian = $post['lokasi_kematian'];
+
+    $file = upload_file_surat('skk');
+    if(!$file){
+        return false ;
+    };
+
+
+    $query = "INSERT INTO `surat` (`id_jenis`, `nama`, `email`, `file`, `no_hp`, `tempat_lahir`, `tanggal_lahir`, `pekerjaan`, `agama`, `jenKel`, `alamat`,`status`,`penyebab_kematian`,`tanggal_kematian`,`lokasi_kematian`,`createdAt`)
+    VALUES 
+    ('$id_jenis','$nama', '$email', '$file', '$no_hp', '$tempat_lahir', '$tanggal_lahir', '$pekerjaan', '$agama', '$jenKel', '$alamat','$status','$penyebab_kematian','$tanggal_kematian','$lokasi_kematian', CURRENT_TIMESTAMP)";
+
+    mysqli_query($db, $query);
+
+    return mysqli_affected_rows($db);
+
+}
+
+
 function upload_foto()
 {
     $namaFile = $_FILES['file']['name'];
