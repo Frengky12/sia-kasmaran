@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 06, 2024 at 05:24 PM
+-- Generation Time: Jun 07, 2024 at 04:59 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -155,7 +155,11 @@ CREATE TABLE `surat` (
 --
 
 INSERT INTO `surat` (`id`, `id_jenis`, `nama`, `email`, `file`, `no_hp`, `tempat_lahir`, `tanggal_lahir`, `pekerjaan`, `agama`, `jenKel`, `alamat`, `keperluan_surat`, `nama_usaha`, `alamat_usaha`, `status`, `penyebab_kematian`, `tanggal_kematian`, `lokasi_kematian`, `nama_ortu_lk`, `nama_ortu_pr`, `createdAt`, `validatedAt`, `validatedBy`, `approvedAt`, `approvedBy`) VALUES
-(1, 1, 'Frengky', 'frengkysky645@gmail.com', 'sktm-6661d43031fa0.pdf', '1212', 'Rantau Panjang', '2024-06-06', '1212', '1212', 'L', 'asda', NULL, NULL, NULL, '', NULL, NULL, NULL, NULL, NULL, '2024-06-06 22:22:24', NULL, NULL, NULL, NULL);
+(1, 1, 'Frengky', 'frengkysky645@gmail.com', 'sktm-6661d43031fa0.pdf', '1212', 'Rantau Panjang', '2024-06-06', '1212', '1212', 'L', 'asda', NULL, NULL, NULL, '', NULL, NULL, NULL, NULL, NULL, '2024-06-06 22:22:24', NULL, NULL, NULL, NULL),
+(2, 2, 'Frengky 2', 'frengkysky645@gmail.com', 'skd-66630d4c361a4.pdf', '1212', 'Rantau Panjang', '2024-06-07', 'asdasd', 'Islam', 'P', 'Rantau Panjang', NULL, NULL, NULL, 'BN', NULL, NULL, NULL, NULL, NULL, '2024-06-07 20:38:20', NULL, NULL, NULL, NULL),
+(3, 3, 'Frengky 3', 'frengkysky645@gmail.com', 'sku-66631080efa7a.png', '1212', 'Rantau Panjang', '2024-06-07', 'asdasd', 'Islam', 'L', 'Kasmaran', 'Minjam Bank', 'Cucian Uang', 'Rantau Panjang', 'N', NULL, NULL, NULL, NULL, NULL, '2024-06-07 20:52:00', NULL, NULL, NULL, NULL),
+(4, 4, 'Sifulani', 'Kona@gmail.com', 'skk-6663131066a8f.png', '1212', 'Talang', '2024-06-07', 'Petani', 'Islam', 'P', 'Talang', NULL, NULL, NULL, 'N', '', '2024-06-07T21:02', 'Talang ubi', NULL, NULL, '2024-06-07 21:02:56', NULL, NULL, NULL, NULL),
+(5, 5, 'Frengky 5', 'frengkysky645@gmail.com', 'spn-666315ea6d42f.pdf', '081258401008', 'Rantau Panjang', '2024-06-07', 'Web Developer', 'Islam', 'L', 'Rantau Panjang', NULL, NULL, NULL, 'BN', NULL, NULL, NULL, 'Saian', 'Huzami', '2024-06-07 21:15:06', NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -299,7 +303,7 @@ ALTER TABLE `sejarah`
 -- AUTO_INCREMENT for table `surat`
 --
 ALTER TABLE `surat`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `user`
