@@ -193,7 +193,7 @@ if (isset($_POST['surat-nikah'])) {
                   <div class="row">
                   <div class="col-lg-12 mt-4">
                     <label for="file" class="form-label"><b>Upload File</b></label>
-                    <input class="form-control" id="file" name="file" type="file">
+                    <input class="form-control" id="file" name="file" type="file" accept="image/*">
                     <small class="text-danger">*File berupa KTP/KK</small>
                   </div>
                   </div>
@@ -300,7 +300,7 @@ if (isset($_POST['surat-nikah'])) {
                   <div class="row">
                   <div class="col-lg-12 mt-4">
                     <label for="file" class="form-label"><b>Upload File</b></label>
-                    <input class="form-control" id="file" name="file" type="file">
+                    <input class="form-control" id="file" name="file" type="file" accept="image/*">
                     <small class="text-danger">*File berupa KTP/KK</small>
                   </div>
                   </div>
@@ -422,7 +422,7 @@ if (isset($_POST['surat-nikah'])) {
                   <div class="row">
                   <div class="col-lg-12 mt-4">
                     <label for="file" class="form-label"><b>Upload File</b></label>
-                    <input class="form-control" id="file" name="file" type="file">
+                    <input class="form-control" id="file" name="file" type="file" accept="image/*">
                     <small class="text-danger">*File berupa KTP/KK/Foto Usaha</small>
                   </div>
                   </div>
@@ -545,7 +545,7 @@ if (isset($_POST['surat-nikah'])) {
                   <div class="row">
                   <div class="col-lg-12 mt-4">
                     <label for="file" class="form-label"><b>Upload File</b></label>
-                    <input class="form-control" id="file" name="file" type="file">
+                    <input class="form-control" id="file" name="file" type="file" accept="image/*">
                     <small class="text-danger">*File berupa KTP/KK/Foto Eviden</small>
                   </div>
                   </div>
@@ -663,7 +663,7 @@ if (isset($_POST['surat-nikah'])) {
                   <div class="row">
                   <div class="col-lg-12 mt-4">
                     <label for="file" class="form-label"><b>Upload File</b></label>
-                    <input class="form-control" id="file" name="file" type="file">
+                    <input class="form-control" id="file" name="file" type="file" accept="image/*">
                     <small class="text-danger">*File berupa KTP/KK</small>
                   </div>
                   </div>

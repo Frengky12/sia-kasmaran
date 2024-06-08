@@ -235,6 +235,7 @@ function insert_surat_sktm($post)
     global $db;
 
     $id_jenis = $post['id_surat'];
+    $nik = $post['nik'];
     $nama = $post['nama'];
     $email = $post['email'];
     $no_hp = $post['no_hp'];
@@ -252,7 +253,7 @@ function insert_surat_sktm($post)
     };
 
 
-    $query = "INSERT INTO `surat` (`id_jenis`, `nama`, `email`, `file`, `no_hp`, `tempat_lahir`, `tanggal_lahir`, `pekerjaan`, `agama`, `jenKel`, `alamat`,`status`, `createdAt`) VALUES ('$id_jenis','$nama', '$email', '$file', '$no_hp', '$tempat_lahir', '$tanggal_lahir', '$pekerjaan', '$agama', '$jenKel', '$alamat','$status', CURRENT_TIMESTAMP)";
+    $query = "INSERT INTO `surat` (`id_jenis`,`nik`, `nama`, `email`, `file`, `no_hp`, `tempat_lahir`, `tanggal_lahir`, `pekerjaan`, `agama`, `jenKel`, `alamat`,`status`, `createdAt`) VALUES ('$id_jenis', '$nik', '$nama', '$email', '$file', '$no_hp', '$tempat_lahir', '$tanggal_lahir', '$pekerjaan', '$agama', '$jenKel', '$alamat','$status', CURRENT_TIMESTAMP)";
 
     mysqli_query($db, $query);
 
@@ -266,6 +267,7 @@ function insert_surat_domisili($post)
     global $db;
 
     $id_jenis = $post['id_surat'];
+    $nik = $post['nik'];
     $nama = $post['nama'];
     $email = $post['email'];
     $no_hp = $post['no_hp'];
@@ -283,7 +285,7 @@ function insert_surat_domisili($post)
     };
 
 
-    $query = "INSERT INTO `surat` (`id_jenis`, `nama`, `email`, `file`, `no_hp`, `tempat_lahir`, `tanggal_lahir`, `pekerjaan`, `agama`, `jenKel`, `alamat`,`status`, `createdAt`) VALUES ('$id_jenis','$nama', '$email', '$file', '$no_hp', '$tempat_lahir', '$tanggal_lahir', '$pekerjaan', '$agama', '$jenKel', '$alamat','$status', CURRENT_TIMESTAMP)";
+    $query = "INSERT INTO `surat` (`id_jenis`, `nik`, `nama`, `email`, `file`, `no_hp`, `tempat_lahir`, `tanggal_lahir`, `pekerjaan`, `agama`, `jenKel`, `alamat`,`status`, `createdAt`) VALUES ('$id_jenis', '$nik','$nama', '$email', '$file', '$no_hp', '$tempat_lahir', '$tanggal_lahir', '$pekerjaan', '$agama', '$jenKel', '$alamat','$status', CURRENT_TIMESTAMP)";
 
     mysqli_query($db, $query);
 
@@ -297,6 +299,7 @@ function insert_surat_usaha($post)
     global $db;
 
     $id_jenis = $post['id_surat'];
+    $nik = $post['nik'];
     $nama = $post['nama'];
     $email = $post['email'];
     $no_hp = $post['no_hp'];
@@ -317,9 +320,9 @@ function insert_surat_usaha($post)
     };
 
 
-    $query = "INSERT INTO `surat` (`id_jenis`, `nama`, `email`, `file`, `no_hp`, `tempat_lahir`, `tanggal_lahir`, `pekerjaan`, `agama`, `jenKel`, `alamat`,`status`,`keperluan_surat`,`nama_usaha`,`alamat_usaha`,`createdAt`)
+    $query = "INSERT INTO `surat` (`id_jenis`,`nik`, `nama`, `email`, `file`, `no_hp`, `tempat_lahir`, `tanggal_lahir`, `pekerjaan`, `agama`, `jenKel`, `alamat`,`status`,`keperluan_surat`,`nama_usaha`,`alamat_usaha`,`createdAt`)
     VALUES 
-    ('$id_jenis','$nama', '$email', '$file', '$no_hp', '$tempat_lahir', '$tanggal_lahir', '$pekerjaan', '$agama', '$jenKel', '$alamat','$status','$keperluan_surat','$nama_usaha','$alamat_usaha', CURRENT_TIMESTAMP)";
+    ('$id_jenis','$nik', '$nama', '$email', '$file', '$no_hp', '$tempat_lahir', '$tanggal_lahir', '$pekerjaan', '$agama', '$jenKel', '$alamat','$status','$keperluan_surat','$nama_usaha','$alamat_usaha', CURRENT_TIMESTAMP)";
 
     mysqli_query($db, $query);
 
@@ -333,6 +336,7 @@ function insert_surat_kematian($post)
     global $db;
 
     $id_jenis = $post['id_surat'];
+    $nik = $post['nik'];
     $nama = $post['nama'];
     $email = $post['email'];
     $no_hp = $post['no_hp'];
@@ -353,9 +357,9 @@ function insert_surat_kematian($post)
     };
 
 
-    $query = "INSERT INTO `surat` (`id_jenis`, `nama`, `email`, `file`, `no_hp`, `tempat_lahir`, `tanggal_lahir`, `pekerjaan`, `agama`, `jenKel`, `alamat`,`status`,`penyebab_kematian`,`tanggal_kematian`,`lokasi_kematian`,`createdAt`)
+    $query = "INSERT INTO `surat` (`id_jenis`, `nik`, `nama`, `email`, `file`, `no_hp`, `tempat_lahir`, `tanggal_lahir`, `pekerjaan`, `agama`, `jenKel`, `alamat`,`status`,`penyebab_kematian`,`tanggal_kematian`,`lokasi_kematian`,`createdAt`)
     VALUES 
-    ('$id_jenis','$nama', '$email', '$file', '$no_hp', '$tempat_lahir', '$tanggal_lahir', '$pekerjaan', '$agama', '$jenKel', '$alamat','$status','$penyebab_kematian','$tanggal_kematian','$lokasi_kematian', CURRENT_TIMESTAMP)";
+    ('$id_jenis','$nik', '$nama', '$email', '$file', '$no_hp', '$tempat_lahir', '$tanggal_lahir', '$pekerjaan', '$agama', '$jenKel', '$alamat','$status','$penyebab_kematian','$tanggal_kematian','$lokasi_kematian', CURRENT_TIMESTAMP)";
 
     mysqli_query($db, $query);
 
@@ -368,6 +372,7 @@ function insert_surat_nikah($post)
     global $db;
 
     $id_jenis = $post['id_surat'];
+    $nik = $post['nik'];
     $nama = $post['nama'];
     $email = $post['email'];
     $no_hp = $post['no_hp'];
@@ -387,9 +392,9 @@ function insert_surat_nikah($post)
     };
 
 
-    $query = "INSERT INTO `surat` (`id_jenis`, `nama`, `email`, `file`, `no_hp`, `tempat_lahir`, `tanggal_lahir`, `pekerjaan`, `agama`, `jenKel`, `alamat`,`status`,`nama_ortu_lk`,`nama_ortu_pr`,`createdAt`)
+    $query = "INSERT INTO `surat` (`id_jenis`, `nik`, `nama`, `email`, `file`, `no_hp`, `tempat_lahir`, `tanggal_lahir`, `pekerjaan`, `agama`, `jenKel`, `alamat`,`status`,`nama_ortu_lk`,`nama_ortu_pr`,`createdAt`)
     VALUES 
-    ('$id_jenis','$nama', '$email', '$file', '$no_hp', '$tempat_lahir', '$tanggal_lahir', '$pekerjaan', '$agama', '$jenKel', '$alamat','$status','$nama_ortu_lk','$nama_ortu_pr', CURRENT_TIMESTAMP)";
+    ('$id_jenis','$nik','$nama', '$email', '$file', '$no_hp', '$tempat_lahir', '$tanggal_lahir', '$pekerjaan', '$agama', '$jenKel', '$alamat','$status','$nama_ortu_lk','$nama_ortu_pr', CURRENT_TIMESTAMP)";
 
     mysqli_query($db, $query);
 

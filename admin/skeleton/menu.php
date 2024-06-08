@@ -17,7 +17,7 @@
 
             <li class="nav-item">
               <a href="visi-misi.php" class="nav-link <?php if ($title == 'Visi Misi'){echo 'active';} ?>">
-                <i class="nav-icon fas fa-certificate"></i>
+                <i class="nav-icon fa fa-circle fa-1"></i>
                 <p>
                   Visi & Misi
                 </p>
@@ -26,7 +26,7 @@
 
             <li class="nav-item">
               <a href="informasi.php" class="nav-link <?php if ($title == 'Informasi'){echo 'active';} ?>">
-                <i class="nav-icon fas fa-info-circle"></i>
+                <i class="nav-icon fa fa-circle fa-1"></i>
                 <p>
                   Informasi
                 </p>
@@ -35,7 +35,7 @@
 
             <li class="nav-item">
               <a href="fasilitas.php" class="nav-link <?php if ($title == 'Fasilitas'){echo 'active';} ?>">
-                <i class="nav-icon fas fa-phone"></i>
+                <i class="nav-icon fa fa-circle fa-1"></i>
                 <p>
                   Fasilitas
                 </p>
@@ -44,7 +44,7 @@
 
             <li class="nav-item">
               <a href="sejarah.php" class="nav-link <?php if ($title == 'Sejarah'){echo 'active';} ?>">
-                <i class="nav-icon fas fa-history"></i>
+                <i class="nav-icon fa fa-circle fa-1"></i>
                 <p>
                   Sejarah
                 </p>
@@ -53,7 +53,7 @@
 
             <li class="nav-item">
               <a href="kontak.php" class="nav-link <?php if ($title == 'Kontak'){echo 'active';} ?>">
-                <i class="nav-icon fas fa-phone"></i>
+                <i class="nav-icon fa fa-circle fa-1"></i>
                 <p>
                   Kontak
                 </p>
@@ -63,10 +63,10 @@
             <!-- Batas Menu Sistem Layanan Administrasi -->
             <li class="nav-header">Layanan Administrasi</li>
             <li class="nav-item">
-              <a href="akun.php" class="nav-link <?php if ($title == 'Pengajuan Surat'){echo 'active';} ?>">
-                <i class="nav-icon fas fa-user-cog"></i>
+              <a href="sk-tidak-mampu.php" class="nav-link <?php if ($title == 'SK Tidak Mampu'){echo 'active';} ?>">
+                <i class="nav-icon fas fa-envelope"></i>
                 <p>
-                  Pengajuan Surat
+                  SK Tidak Mampu
                 </p>
               </a>
             </li>
