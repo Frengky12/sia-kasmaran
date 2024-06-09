@@ -72,7 +72,7 @@ FROM surat s LEFT JOIN ms_surat ms ON ms.id = s.id_jenis WHERE s.id_jenis = 4");
                       <th>No HP</th>
                       <th>Email</th>
                       <th>Penyebab Kematian</th>
-                      <th>Status</th>
+                      <th>Status Pengajuan</th>
                       <th>Tanggal Pengajuan</th>
                       <th>Aksi</th>
                     </tr>
