@@ -519,8 +519,8 @@ if (isset($_POST['surat-nikah'])) {
                   
                   <div class="row">
                   <div class="form-group col-lg-6 mt-4">
-                      <label for="penyebab_kematin"><b>Penyebab Kematian</b></label>
-                      <input type="text" name="penyebab_kematin" id="penyebab_kematin" class="form-control" required>
+                      <label for="penyebab_kematian"><b>Penyebab Kematian</b></label>
+                      <input type="text" name="penyebab_kematian" id="penyebab_kematian" class="form-control" required>
                     </div>
 
                     <div class="form-group col-lg-6 mt-4">

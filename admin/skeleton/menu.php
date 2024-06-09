@@ -70,6 +70,43 @@
                 </p>
               </a>
             </li>
+            
+            <li class="nav-item">
+              <a href="sk-domisili.php" class="nav-link <?php if ($title == 'SK Domisili'){echo 'active';} ?>">
+                <i class="nav-icon fas fa-envelope"></i>
+                <p>
+                  SK Domisili
+                </p>
+              </a>
+            </li>
+            
+            <li class="nav-item">
+              <a href="sk-usaha.php" class="nav-link <?php if ($title == 'SK Usaha'){echo 'active';} ?>">
+                <i class="nav-icon fas fa-envelope"></i>
+                <p>
+                  SK Usaha
+                </p>
+              </a>
+            </li>
+
+            <li class="nav-item">
+              <a href="sk-kematian.php" class="nav-link <?php if ($title == 'SK Kematian'){echo 'active';} ?>">
+                <i class="nav-icon fas fa-envelope"></i>
+                <p>
+                  SK Kematian
+                </p>
+              </a>
+            </li>
+
+            
+            <li class="nav-item">
+              <a href="surat-pengantar-nikah.php" class="nav-link <?php if ($title == 'Surat Pengantar Nikah'){echo 'active';} ?>">
+                <i class="nav-icon fas fa-envelope"></i>
+                <p>
+                  Surat Pengantar Nikah
+                </p>
+              </a>
+            </li>
 
             <li class="nav-header"><i>Config</i></li>
 
