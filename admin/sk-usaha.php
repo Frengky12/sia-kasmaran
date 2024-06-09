@@ -2,7 +2,29 @@
 $title = 'SK Usaha';
 include 'skeleton/header.php';
 
-$surat = query("SELECT s.*, ms.nama_surat FROM surat s LEFT JOIN ms_surat ms ON ms.id = s.id_jenis WHERE s.id_jenis = 3");
+// $surat = query("SELECT s.*, ms.nama_surat FROM surat s LEFT JOIN ms_surat ms ON ms.id = s.id_jenis WHERE s.id_jenis = ");
+
+$level_akses = (int)$_SESSION['level'];
+if ($level_akses == 1) {
+  $surat = query("SELECT s.*, ms.nama_surat,
+(CASE
+ WHEN s.validatedAt IS NULL AND s.approvedAt IS NULL THEN 'Waiting Validated'
+ WHEN s.validatedAt IS NOT NULL AND s.approvedAt IS NULL THEN 'Waiting Approved'
+ WHEN s.validatedAt IS NOT NULL AND s.approvedAt IS NOT NULL THEN 'Selesai'
+  WHEN s.rejectedAt IS NOT NULL THEN 'Ditolak'
+END) AS status
+FROM surat s LEFT JOIN ms_surat ms ON ms.id = s.id_jenis WHERE s.id_jenis = 3 AND s.validatedAt IS NOT NULL");
+} else {
+
+  $surat = query("SELECT s.*, ms.nama_surat,
+(CASE
+ WHEN s.validatedAt IS NULL AND s.approvedAt IS NULL THEN 'Waiting Validated'
+ WHEN s.validatedAt IS NOT NULL AND s.approvedAt IS NULL THEN 'Waiting Approved'
+ WHEN s.validatedAt IS NOT NULL AND s.approvedAt IS NOT NULL THEN 'Selesai'
+  WHEN s.rejectedAt IS NOT NULL THEN 'Ditolak'
+END) AS status
+FROM surat s LEFT JOIN ms_surat ms ON ms.id = s.id_jenis WHERE s.id_jenis = 3");
+}
 ?>
 
     <!-- Content Wrapper. Contains page content -->
@@ -43,7 +65,7 @@ $surat = query("SELECT s.*, ms.nama_surat FROM surat s LEFT JOIN ms_surat ms ON 
               <div class="card-body">
                 <table class="table table-responsive table-bordered table-hover text-nowrap">
                   <thead>
-                    <tr>
+                    <tr class="text-center">
                       <th width="2%">No.</th>
                       <th>NIK</th>
                       <th>Nama</th>
@@ -51,16 +73,22 @@ $surat = query("SELECT s.*, ms.nama_surat FROM surat s LEFT JOIN ms_surat ms ON 
                       <th>No HP</th>
                       <th>Email</th>
                       <th>Nama Usaha</th>
+                      <th>Status</th>
                       <th>Tanggal Pengajuan</th>
                       <th>Aksi</th>
                     </tr>
                   </thead>
 
                   <tbody>
+                  <?php if (count($surat) == 0) { ?>
+                      <tr class="text-center">
+                        <td  colspan="10"><b>Belum Ada Data</b></td>
+                      </tr>
+                    <?php }; ?>
                     <?php $no = 1 ?>
                     <?php foreach ($surat as $srt) : ?>
                       
-                      <tr>
+                      <tr class="text-center">
                         <td><?= $no++ ?></td>
                         <td><?= $srt['nik']; ?></td>
                         <td><?= $srt['nama']; ?></td>
@@ -68,10 +96,15 @@ $surat = query("SELECT s.*, ms.nama_surat FROM surat s LEFT JOIN ms_surat ms ON 
                         <td><?= $srt['no_hp']; ?></td>
                         <td><?= $srt['email']; ?></td>
                         <td><?= $srt['nama_usaha']; ?></td>
+                        <td>
+                          <span class="badge badge-info">
+                            <?= $srt['status']; ?>
+                          </span>
+                        </td>
                         <td><?= date('d/m/Y h:i:s', strtotime($srt['createdAt'])); ?><td>
                           <a class="btn btn-sm btn-success" href="detail-surat.php?id=<?= $srt['id'] ?>">
                             <i class="fas fa-fw fa-check"></i>
-                            Validasi
+                            <?= $level_akses == 1 ? 'Approve' : 'Validasi'; ?>
                           </a>
                         </td>
                       </tr>

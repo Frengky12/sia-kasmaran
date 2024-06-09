@@ -4,6 +4,7 @@ include 'skeleton/header.php';
 
 $id = (int)$_GET['id'];
 $surat = query("SELECT s.*, ms.nama_surat FROM surat s LEFT JOIN ms_surat ms ON ms.id = s.id_jenis WHERE s.id = $id")[0];
+$level_akses = (int)$_SESSION['level'];
 ?>
 
     <!-- Content Wrapper. Contains page content -->
@@ -201,7 +202,7 @@ $surat = query("SELECT s.*, ms.nama_surat FROM surat s LEFT JOIN ms_surat ms ON 
               <div class="card-footer">
                 <button type="submit" name="submit" class="btn btn-sm btn-success float-right">
                   <i class="fas fa-fw fa-check"></i>
-                  Validasi
+                  <?= $level_akses == 1 ? 'Approve' : 'Validasi'; ?>
                 </button>
                 <button type="submit" name="submit" class="btn btn-sm btn-danger float-right mr-2">
                   <i class="fas fa-fw fa-times"></i>
