@@ -2,7 +2,7 @@
 $title = 'SK Domisili';
 include 'skeleton/header.php';
 
-$users = query("SELECT s.*, ms.nama_surat FROM surat s LEFT JOIN ms_surat ms ON ms.id = s.id_jenis WHERE s.id_jenis = 2");
+$surat = query("SELECT s.*, ms.nama_surat FROM surat s LEFT JOIN ms_surat ms ON ms.id = s.id_jenis WHERE s.id_jenis = 2");
 ?>
 
     <!-- Content Wrapper. Contains page content -->
@@ -57,24 +57,24 @@ $users = query("SELECT s.*, ms.nama_surat FROM surat s LEFT JOIN ms_surat ms ON 
 
                   <tbody>
                     <?php $no = 1 ?>
-                    <?php foreach ($users as $user) : ?>
+                    <?php foreach ($surat as $srt) : ?>
                       
                       <tr>
                         <td><?= $no++ ?></td>
-                        <td><?= $user['nik']; ?></td>
-                        <td><?= $user['nama']; ?></td>
-                        <td><?= $user['nama_surat']; ?></td>
-                        <td><?= $user['no_hp']; ?></td>
-                        <td><?= $user['email']; ?></td>
-                        <td><?= date('d/m/Y h:i:s', strtotime($user['createdAt'])); ?><td>
-                          <a class="btn btn-sm btn-success" href="edit-akun.php?id=<?= $user['id'] ?>">
+                        <td><?= $srt['nik']; ?></td>
+                        <td><?= $srt['nama']; ?></td>
+                        <td><?= $srt['nama_surat']; ?></td>
+                        <td><?= $srt['no_hp']; ?></td>
+                        <td><?= $srt['email']; ?></td>
+                        <td><?= date('d/m/Y h:i:s', strtotime($srt['createdAt'])); ?><td>
+                          <a class="btn btn-sm btn-success" href="detail-surat.php?id=<?= $srt['id'] ?>">
                             <i class="fas fa-fw fa-check"></i>
                             Validasi
                           </a>
-                          <button class="btn btn-sm btn-danger" name="hapus" onclick="onHapus(<?= $user['id'] ?>)">
+                          <!-- <button class="btn btn-sm btn-danger" name="hapus" onclick="onHapus(<?= $srt['id'] ?>)">
                             <i class="fas fa-fw fa-times"></i>
                             Tolak
-                          </button>
+                          </button> -->
                         </td>
                       </tr>
                      <?php endforeach; ?>
