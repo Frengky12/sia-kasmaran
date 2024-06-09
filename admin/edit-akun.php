@@ -100,11 +100,7 @@ $user = query("SELECT * FROM user WHERE id = $id")[0];
                         <label for="exampleInputFile">Foto</label>
                         <div class="input-group">
                         <div class="custom-file">
-<<<<<<< HEAD
                             <input type="file" class="custom-file-input" id="file" name="file" value="<?= $user['foto'] ?>" onchange="previewImg()" accept="image/*">
-=======
-                            <input required type="file" class="custom-file-input" id="file" name="file" value="<?= $user['foto'] ?>" onchange="previewImg()" accept="image/*">
->>>>>>> origin/master
                             <label class="custom-file-label" for="file">Choose file...</label>
                         </div>
                         <div class="input-group-append">

@@ -108,11 +108,77 @@ $surat = query("SELECT s.*, ms.nama_surat FROM surat s LEFT JOIN ms_surat ms ON 
                     </div>
                   </div>
 
+                  <?php if ($surat['id'] == 3) { ?>
+
+                    <div class="row">
+                    <div class="form-group col-lg-6 mt-4">
+                      <label for="keperluan_surat"><b>Keperluan Surat</b></label>
+                      <input type="keperluan_surat" name="keperluan_surat" id="keperluan_surat" class="form-control" value="<?= $surat['keperluan_surat']; ?>" required disabled>
+                    </div>
+
+                    <div class="form-group col-lg-6 mt-4">
+                      <label for="nama_usaha"><b>Nama Usaha</b></label>
+                      <input type="text" name="nama_usaha" id="nama_usaha" class="form-control" value="<?= $surat['nama_usaha']; ?>" required disabled>
+                    </div>
+                  </div>
+
+                  <div class="row">
+                    <div class="form-group col-lg-12 mt-4">
+                      <label for="alamat_usaha"><b>Alamat Usaha</b></label>
+                      <textarea name="alamat_usaha" id="alamat_usaha" cols="30" rows="5" class="form-control" disabled>
+                      <?= $surat['alamat_usaha']; ?>
+                      </textarea>
+                    </div>
+                  </div>
+
+                  <?php } ?>
+
+                  <?php if ($surat['id'] == 4) { ?>
+
+                    <div class="row">
+                    <div class="form-group col-lg-6 mt-4">
+                      <label for="penyebab_kematian"><b>Penyebab Kematian</b></label>
+                      <input type="penyebab_kematian" name="penyebab_kematian" id="penyebab_kematian" class="form-control" value="<?= $surat['penyebab_kematian']; ?>" required disabled>
+                    </div>
+
+                    <div class="form-group col-lg-6 mt-4">
+                      <label for="tanggal_kematian"><b>Tanggal Kematian</b></label>
+                      <input type="text" name="tanggal_kematian" id="tanggal_kematian" class="form-control" value="<?= $surat['tanggal_kematian']; ?>" required disabled>
+                    </div>
+                    </div>
+
+                    <div class="row">
+                    <div class="form-group col-lg-12 mt-4">
+                      <label for="lokasi_kematian"><b>Lokasi Kematian</b></label>
+                      <textarea name="lokasi_kematian" id="lokasi_kematian" cols="30" rows="5" class="form-control" disabled>
+                      <?= $surat['lokasi_kematian']; ?>
+                      </textarea>
+                    </div>
+                    </div>
+
+                    <?php } ?>
+
+                    
+                  <?php if ($surat['id'] == 5) { ?>
+
+                    <div class="row">
+                    <div class="form-group col-lg-6 mt-4">
+                      <label for="nama_ortu_lk"><b>Nama Orangtua Laki-laki</b></label>
+                      <input type="nama_ortu_lk" name="nama_ortu_lk" id="nama_ortu_lk" class="form-control" value="<?= $surat['nama_ortu_lk']; ?>" required disabled>
+                    </div>
+
+                    <div class="form-group col-lg-6 mt-4">
+                      <label for="nama_ortu_pr"><b>Nama Orangtua Perempuan</b></label>
+                      <input type="text" name="nama_ortu_pr" id="nama_ortu_pr" class="form-control" value="<?= $surat['nama_ortu_pr']; ?>" required disabled>
+                    </div>
+                    </div>
+
+                    <?php } ?>
 
                   <div class="row">
                     <div class="form-group col-lg-12 mt-4">
                       <label for="alamat"><b>Alamat</b></label>
-                      <textarea name="alamat" id="alamat" cols="30" rows="5" class="form-control">
+                      <textarea name="alamat" id="alamat" cols="30" rows="5" class="form-control" disabled>
                       <?= $surat['alamat']; ?>
                       </textarea>
                     </div>
@@ -120,12 +186,27 @@ $surat = query("SELECT s.*, ms.nama_surat FROM surat s LEFT JOIN ms_surat ms ON 
 
                   <div class="row">
                   <div class="col-lg-12 mt-4">
-                    <label for="file" class="form-label"><b>File</b></label>
+                    <label for="file" class="form-label"><b>File</b></label><br>
+                    <div class="text-center">
+                      
+                    <img src="../admin/public/surat/<?= $surat['file']; ?>" alt="" srcset="" width="70%">
+                    </div>
                   </div>
                   </div>
 
 
 
+              </div>
+
+              <div class="card-footer">
+                <button type="submit" name="submit" class="btn btn-sm btn-success float-right">
+                  <i class="fas fa-fw fa-check"></i>
+                  Validasi
+                </button>
+                <button type="submit" name="submit" class="btn btn-sm btn-danger float-right mr-2">
+                  <i class="fas fa-fw fa-times"></i>
+                  Tolak
+                </button>
               </div>
             </div>
 
