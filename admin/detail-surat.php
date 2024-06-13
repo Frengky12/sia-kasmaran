@@ -215,14 +215,37 @@ if (isset($_POST['submit'])) {
               </div>
 
               <div class="card-footer">
+                <?php if ($level_akses == 1 && $surat['approvedAt'] == NULL) { ?>
+                  
                 <button type="submit" name="submit" class="btn btn-sm btn-success float-right">
                   <i class="fas fa-fw fa-check"></i>
-                  <?= $level_akses == 1 ? 'Approve' : 'Validasi'; ?>
+                  Approve
                 </button>
+                
                 <button type="submit" name="submit" class="btn btn-sm btn-danger float-right mr-2">
                   <i class="fas fa-fw fa-times"></i>
                   Tolak
                 </button>
+
+                <?php } ?>
+                
+                <?php if ($level_akses == 2 && $surat['validatedAt'] == NULL) { ?>
+                  
+                  <button type="submit" name="submit" class="btn btn-sm btn-success float-right">
+                    <i class="fas fa-fw fa-check"></i>
+                    Validasi
+                  </button>
+                  
+                <button type="submit" name="submit" class="btn btn-sm btn-danger float-right mr-2">
+                  <i class="fas fa-fw fa-times"></i>
+                  Tolak
+                </button>
+                  <?php } ?>
+
+                  <a href="index.php" class="btn btn-sm btn-secondary float-right mr-2">
+                    Close
+                  </a>
+
               </div>
             </div>
 
