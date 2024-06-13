@@ -5,6 +5,20 @@ include 'skeleton/header.php';
 $id = (int)$_GET['id'];
 $surat = query("SELECT s.*, ms.nama_surat FROM surat s LEFT JOIN ms_surat ms ON ms.id = s.id_jenis WHERE s.id = $id")[0];
 $level_akses = (int)$_SESSION['level'];
+
+if (isset($_POST['submit'])) {
+  if (approval_surat($_POST, $level_akses == 1 ? 'approve' : 'validasi') > 0) {
+    echo "<script>
+      alert('Surat Berhasil Diupdate');
+      document.location.href = 'sk-tidak-mampu.php';
+  </script>";
+  } else {
+  echo "<script>
+      alert('Surat Gagal Diupdate');
+      document.location.href = 'detail-surat.php?id=$id';
+  </script>";
+  }
+}
 ?>
 
     <!-- Content Wrapper. Contains page content -->
@@ -45,6 +59,7 @@ $level_akses = (int)$_SESSION['level'];
               <div class="card-body">
               <form action="" method="post" enctype="multipart/form-data">
                   <input type="hidden" name="id" value="<?= $surat['id'] ?>">
+                  <input type="hidden" name="approvalBy" value="<?= (int)$_SESSION['id'] ?>">
                   <div class="row">
                     <div class="form-group col-lg-6 mt-4">
                       <label for="nik"><b>NIK</b></label>

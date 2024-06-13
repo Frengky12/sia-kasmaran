@@ -101,11 +101,24 @@ FROM surat s LEFT JOIN ms_surat ms ON ms.id = s.id_jenis WHERE s.id_jenis = 3");
                             <?= $srt['status']; ?>
                           </span>
                         </td>
-                        <td><?= date('d/m/Y h:i:s', strtotime($srt['createdAt'])); ?><td>
-                          <a class="btn btn-sm btn-success" href="detail-surat.php?id=<?= $srt['id'] ?>">
-                            <i class="fas fa-fw fa-check"></i>
-                            <?= $level_akses == 1 ? 'Approve' : 'Validasi'; ?>
-                          </a>
+                        <td><?= date('d/m/Y h:i:s', strtotime($srt['createdAt'])); ?></td>
+
+                        <td>
+                        
+                        <?php if ($level_akses == 2) { ?>
+                            <a class="btn btn-sm <?= $srt['validatedAt'] == NULL  ? 'btn-success' : 'btn-info'; ?>" href="detail-surat.php?id=<?= $srt['id'] ?>">
+                              <i class="fas fa-fw <?= $srt['validatedAt'] == NULL  ? 'fa-check' : 'fa-info'; ?>"></i>
+                              <?= $srt['validatedAt'] == NULL  ? 'Validasi' : 'Detail'; ?>
+                            </a>
+                          <?php } ?>
+
+                          
+                          <?php if ($level_akses == 1) { ?>
+                            <a class="btn btn-sm <?= $srt['approvedAt'] == NULL  ? 'btn-success' : 'btn-info'; ?>" href="detail-surat.php?id=<?= $srt['id'] ?>">
+                              <i class="fas fa-fw <?= $srt['approvedAt'] == NULL  ? 'fa-check' : 'fa-info'; ?>"></i>
+                              <?= $srt['approvedAt'] == NULL  ? 'Approve' : 'Detail' ?>
+                            </a>
+                          <?php } ?>
                         </td>
                       </tr>
                      <?php endforeach; ?>

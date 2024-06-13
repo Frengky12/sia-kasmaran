@@ -402,6 +402,24 @@ function insert_surat_nikah($post)
 
 }
 
+function approval_surat($post, $type)
+{
+    global $db;
+    
+    $id = $post['id'];
+    $by = $post['approvalBy'];
+    $query = '';
+    if ($type == 'approve') {
+        $query = "UPDATE `surat` SET approvedAt = CURRENT_TIMESTAMP, approvedBy = '$by' WHERE id = $id";
+    } elseif($type == 'validasi') {
+        $query = "UPDATE `surat` SET validatedAT = CURRENT_TIMESTAMP, validatedBY = '$by' WHERE id = $id";
+    }
+    
+    mysqli_query($db, $query);
+
+    return mysqli_affected_rows($db);
+}
+
 
 function upload_foto()
 {
