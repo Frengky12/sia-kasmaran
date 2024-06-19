@@ -8,13 +8,45 @@ $level_akses = (int)$_SESSION['level'];
 
 if (isset($_POST['submit'])) {
   if (approval_surat($_POST, $level_akses == 1 ? 'approve' : 'validasi') > 0) {
-    echo "<script>
-      alert('Surat Berhasil Diupdate');
+    if ($level_akses == 1) {
+      if ($surat['id_jenis'] == 1) {
+      echo "<script>
+        alert('Surat Berhasil Approve');
+        document.location.href = 'export/sktm.php?id=$id';
+    </script>";
+      } elseif ($surat['id_jenis'] == 2) {
+        echo "<script>
+            alert('Surat Berhasil Approve');
+            document.location.href = 'export/domisili.php?id=$id';
+        </script>";
+      } elseif ($surat['id_jenis'] == 3) {
+        
+        echo "<script>
+            alert('Surat Berhasil Approve');
+            document.location.href = 'export/domisili.php?id=$id';
+        </script>";
+      } elseif ($surat['id_jenis'] == 4) {
+        
+        echo "<script>
+            alert('Surat Berhasil Approve');
+            document.location.href = 'export/domisili.php?id=$id';
+        </script>";
+      } elseif ($surat['id_jenis'] == 5) {
+        
+        echo "<script>
+            alert('Surat Berhasil Approve');
+            document.location.href = 'export/domisili.php?id=$id';
+        </script>";
+      }
+    } else {
+      echo "<script>
+      alert('Surat Berhasil Validasi');
       document.location.href = 'sk-tidak-mampu.php';
   </script>";
+    }
   } else {
   echo "<script>
-      alert('Surat Gagal Diupdate');
+      alert('Surat Gagal Update');
       document.location.href = 'detail-surat.php?id=$id';
   </script>";
   }
@@ -124,7 +156,7 @@ if (isset($_POST['submit'])) {
                     </div>
                   </div>
 
-                  <?php if ($surat['id'] == 3) { ?>
+                  <?php if ($surat['id_jenis'] == 3) { ?>
 
                     <div class="row">
                     <div class="form-group col-lg-6 mt-4">
@@ -149,7 +181,7 @@ if (isset($_POST['submit'])) {
 
                   <?php } ?>
 
-                  <?php if ($surat['id'] == 4) { ?>
+                  <?php if ($surat['id_jenis'] == 4) { ?>
 
                     <div class="row">
                     <div class="form-group col-lg-6 mt-4">
@@ -175,7 +207,7 @@ if (isset($_POST['submit'])) {
                     <?php } ?>
 
                     
-                  <?php if ($surat['id'] == 5) { ?>
+                  <?php if ($surat['id_jenis'] == 5) { ?>
 
                     <div class="row">
                     <div class="form-group col-lg-6 mt-4">
