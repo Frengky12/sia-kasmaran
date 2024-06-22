@@ -1,5 +1,19 @@
 <?php
+
+require('../skeleton/config/main.php');
 require('../vendor/setasign/fpdf/fpdf.php');
+
+// Set locale to Indonesian
+setlocale(LC_TIME, 'id_ID.UTF-8', 'Indonesian.utf8', 'id_ID.utf8');
+
+// Get the current date in Indonesian format
+$currentDate = strftime('%d %B %Y');
+
+
+$id = (int)$_GET['id'];
+$surat = query("SELECT s.*, ms.nama_surat FROM surat s LEFT JOIN ms_surat ms ON ms.id = s.id_jenis WHERE s.id = $id")[0];
+$level_akses = (int)$_SESSION['level'];
+
 
 class PDF extends FPDF
 {
@@ -36,7 +50,7 @@ class PDF extends FPDF
          // Underline
          $this->Line(80, $this->GetY(), 110, $this->GetY());
         $this->SetFont('Arial','',12);
-        $this->Cell(0,5,'NOMOR : 474.2 / 2009/III/2024',0,1,'C');
+        $this->Cell(0,5,'NOMOR : '. 1 . ' / 2009/V/' . date('Y'),0,1,'C');
         $this->Ln(10);
     }
 

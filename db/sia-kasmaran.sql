@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 07, 2024 at 04:59 PM
+-- Generation Time: Jun 22, 2024 at 08:08 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -124,6 +124,7 @@ INSERT INTO `sejarah` (`id`, `judul`, `isi`, `picture`, `updatedAt`, `updatedBy`
 CREATE TABLE `surat` (
   `id` int(11) NOT NULL,
   `id_jenis` int(11) NOT NULL,
+  `nik` varchar(17) NOT NULL,
   `nama` varchar(100) NOT NULL,
   `email` varchar(50) NOT NULL,
   `file` varchar(100) NOT NULL,
@@ -147,19 +148,22 @@ CREATE TABLE `surat` (
   `validatedAt` datetime DEFAULT NULL,
   `validatedBy` int(11) DEFAULT NULL,
   `approvedAt` datetime DEFAULT NULL,
-  `approvedBy` int(11) DEFAULT NULL
+  `approvedBy` int(11) DEFAULT NULL,
+  `rejectedAt` datetime DEFAULT NULL,
+  `rejectedBy` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `surat`
 --
 
-INSERT INTO `surat` (`id`, `id_jenis`, `nama`, `email`, `file`, `no_hp`, `tempat_lahir`, `tanggal_lahir`, `pekerjaan`, `agama`, `jenKel`, `alamat`, `keperluan_surat`, `nama_usaha`, `alamat_usaha`, `status`, `penyebab_kematian`, `tanggal_kematian`, `lokasi_kematian`, `nama_ortu_lk`, `nama_ortu_pr`, `createdAt`, `validatedAt`, `validatedBy`, `approvedAt`, `approvedBy`) VALUES
-(1, 1, 'Frengky', 'frengkysky645@gmail.com', 'sktm-6661d43031fa0.pdf', '1212', 'Rantau Panjang', '2024-06-06', '1212', '1212', 'L', 'asda', NULL, NULL, NULL, '', NULL, NULL, NULL, NULL, NULL, '2024-06-06 22:22:24', NULL, NULL, NULL, NULL),
-(2, 2, 'Frengky 2', 'frengkysky645@gmail.com', 'skd-66630d4c361a4.pdf', '1212', 'Rantau Panjang', '2024-06-07', 'asdasd', 'Islam', 'P', 'Rantau Panjang', NULL, NULL, NULL, 'BN', NULL, NULL, NULL, NULL, NULL, '2024-06-07 20:38:20', NULL, NULL, NULL, NULL),
-(3, 3, 'Frengky 3', 'frengkysky645@gmail.com', 'sku-66631080efa7a.png', '1212', 'Rantau Panjang', '2024-06-07', 'asdasd', 'Islam', 'L', 'Kasmaran', 'Minjam Bank', 'Cucian Uang', 'Rantau Panjang', 'N', NULL, NULL, NULL, NULL, NULL, '2024-06-07 20:52:00', NULL, NULL, NULL, NULL),
-(4, 4, 'Sifulani', 'Kona@gmail.com', 'skk-6663131066a8f.png', '1212', 'Talang', '2024-06-07', 'Petani', 'Islam', 'P', 'Talang', NULL, NULL, NULL, 'N', '', '2024-06-07T21:02', 'Talang ubi', NULL, NULL, '2024-06-07 21:02:56', NULL, NULL, NULL, NULL),
-(5, 5, 'Frengky 5', 'frengkysky645@gmail.com', 'spn-666315ea6d42f.pdf', '081258401008', 'Rantau Panjang', '2024-06-07', 'Web Developer', 'Islam', 'L', 'Rantau Panjang', NULL, NULL, NULL, 'BN', NULL, NULL, NULL, 'Saian', 'Huzami', '2024-06-07 21:15:06', NULL, NULL, NULL, NULL);
+INSERT INTO `surat` (`id`, `id_jenis`, `nik`, `nama`, `email`, `file`, `no_hp`, `tempat_lahir`, `tanggal_lahir`, `pekerjaan`, `agama`, `jenKel`, `alamat`, `keperluan_surat`, `nama_usaha`, `alamat_usaha`, `status`, `penyebab_kematian`, `tanggal_kematian`, `lokasi_kematian`, `nama_ortu_lk`, `nama_ortu_pr`, `createdAt`, `validatedAt`, `validatedBy`, `approvedAt`, `approvedBy`, `rejectedAt`, `rejectedBy`) VALUES
+(1, 1, '', 'Frengky', 'frengkysky645@gmail.com', 'sktm-6661d43031fa0.pdf', '1212', 'Rantau Panjang', '2024-06-06', '1212', '1212', 'L', 'asda', NULL, NULL, NULL, '', NULL, NULL, NULL, NULL, NULL, '2024-06-06 22:22:24', NULL, NULL, NULL, NULL, NULL, NULL),
+(2, 2, '', 'Frengky 2', 'frengkysky645@gmail.com', 'skd-66630d4c361a4.pdf', '1212', 'Rantau Panjang', '2024-06-07', 'asdasd', 'Islam', 'P', 'Rantau Panjang', NULL, NULL, NULL, 'BN', NULL, NULL, NULL, NULL, NULL, '2024-06-07 20:38:20', NULL, NULL, NULL, NULL, NULL, NULL),
+(3, 3, '', 'Frengky 3', 'frengkysky645@gmail.com', 'sku-66631080efa7a.png', '1212', 'Rantau Panjang', '2024-06-07', 'asdasd', 'Islam', 'L', 'Kasmaran', 'Minjam Bank', 'Cucian Uang', 'Rantau Panjang', 'N', NULL, NULL, NULL, NULL, NULL, '2024-06-07 20:52:00', NULL, NULL, NULL, NULL, NULL, NULL),
+(4, 4, '', 'Sifulani', 'Kona@gmail.com', 'skk-6663131066a8f.png', '1212', 'Talang', '2024-06-07', 'Petani', 'Islam', 'P', 'Talang', NULL, NULL, NULL, 'N', '', '2024-06-07T21:02', 'Talang ubi', NULL, NULL, '2024-06-07 21:02:56', NULL, NULL, NULL, NULL, NULL, NULL),
+(5, 5, '', 'Frengky 5', 'frengkysky645@gmail.com', 'spn-666315ea6d42f.pdf', '081258401008', 'Rantau Panjang', '2024-06-07', 'Web Developer', 'Islam', 'L', 'Rantau Panjang', NULL, NULL, NULL, 'BN', NULL, NULL, NULL, 'Saian', 'Huzami', '2024-06-07 21:15:06', NULL, NULL, NULL, NULL, NULL, NULL),
+(6, 1, '1234567891011121', 'Sifulani', 'frengkysky645@gmail.com', 'sktm-66766733329c4.png', '081258401008', 'Rantau Panjang', '2024-06-22', 'Web Developer', 'Islam', 'L', 'Rantau Panjang', NULL, NULL, NULL, 'BN', NULL, NULL, NULL, NULL, NULL, '2024-06-22 12:54:59', '2024-06-22 12:55:19', 1, '2024-06-22 13:00:58', 2, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -185,24 +189,8 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id`, `nama`, `email`, `username`, `password`, `level`, `foto`, `createdAt`, `lastLogin`, `deletedAt`) VALUES
-(1, 'Frengky', 'frengkysky645@gmail.com', 'frengky', '$2y$10$QjmpG07nIUgBQ9J/sluRCO/6kGigdnDfhYbjKqW.rpCKCGiKgnMv.', 1, '66091c1b53ab9.jpg', '2024-03-30 12:07:33', '2024-06-05 21:22:59', NULL),
-(2, 'Anggraini Agustin Saputri', 'anggraini@gmail.com', 'anggraini', '$2y$10$qe36y7b7UDh3vQKUB1W8PungWP.pAluE7E0N8M7Hb.rculapCS41e', 2, '6607f01510382.jpg', '2024-03-30 17:57:25', NULL, NULL),
-(3, 'Kades', 'Rozy@gmail.com', 'Rozy', '$2y$10$rnZdR/9/VVyNPjopjLNAu.AxpZ4GKCO4EGQJnentTx7E5X7bjvvuS', 1, '6608db02c90dd.jpg', '2024-03-31 10:39:46', NULL, '2024-03-31 11:21:47'),
-(4, 'Kades', 'adada@gmail.com', 'adada', '$2y$10$YQAoqZdvmUlo4t2FOLWjSe4PQm9pe0ECAL5yinKVvnvXCC1SosEJm', 2, '6608dc2d50228.jpg', '2024-03-31 10:44:45', NULL, '2024-03-31 11:20:42'),
-(5, 'asd', 'adada@gmail.com', 'asd', '$2y$10$MuKCiS../cqDDe9PYDTr9OhTET5mGjtgZKsiqI/jSv1gW5uuV4KLW', 2, '6608e59fac1bd.jpg', '2024-03-31 11:25:03', NULL, NULL),
-(6, 'asd', 'adada@gmail.com', 'asd', '$2y$10$CZbhMHQ5xErcdI8zuKh1b..Xf/MpKHykohSX1l6CNhQ/TZjimfb6.', 2, '6608e5ef21fd1.jpg', '2024-03-31 11:26:23', NULL, NULL),
-(7, 'asd', 'asd@gmail.com', 'asd', '$2y$10$JgvTODxOU3NycH8.3L6n8eQGx6G69iwIBlJUdgDjFUga535umoIRG', 2, '6608e7fb5c32f.jpg', '2024-03-31 11:35:07', NULL, '2024-03-31 11:38:39'),
-(8, 'asd', 'asd@gmail.com', 'asd', '$2y$10$cl.osDjCO3821707GubakuH0b/hG5.CFXA4Dg89FOd.RDHCPoqpgu', 2, '6608e885d8370.jpg', '2024-03-31 11:37:25', NULL, '2024-03-31 11:38:26'),
-(9, 'asd', 'adada@gmail.com', 'asd', '$2y$10$IYYpeKrpfGmgFU9WXMeH3eUmrIjlojdDq4SHY.oJt/ICG7leHcT7G', 1, '6608e98b717e2.jpg', '2024-03-31 11:41:47', NULL, NULL),
-(10, 'asd', 'asd@gmail.com', 'asd', '$2y$10$qhheWVSFVnmVBfdWFs2LxeEMeQBTcSciBlHhw.qmlJGbLZKEkHM.W', 1, '6608eaa753037.jpg', '2024-03-31 11:46:31', NULL, NULL),
-(11, 'asd', 'asd@gmail.com', 'asd', '$2y$10$mcebxFUvwwkG4RnRc8ifbOUCNIYXXC5Np7CGgulObUDfa.tlnLIBu', 1, '6608f3cf8b088.jpg', '2024-03-31 12:25:35', NULL, '2024-03-31 14:17:46'),
-(12, 'asd', 'asd@gmail.com', 'asd', '$2y$10$9cnnzDdNGw35e7.slDa/iuCSPI9Jx2Tek5b3dJOS19Hx64Fuhojtq', 1, '66090a143c3c4.jpg', '2024-03-31 14:00:36', NULL, '2024-03-31 14:14:40'),
-(13, 'asd', 'asd@gmail.com', 'asasd', '$2y$10$hgXLzlk5UUfLFrBYOlV1Uu9qZ.zLwmVzCtYLd/kHfUeWgVJMLS3p2', 1, '66090b00db67a.jpg', '2024-03-31 14:04:32', NULL, '2024-03-31 14:12:49'),
-(14, 'asd', 'asd@gmail.com', 'asd', '$2y$10$sTa5hlsCY8pyia3QtIgq9.L2QRsHTJW3EVL3Yf19sBMrib4WcT4ke', 1, '660912a1b143f.jpg', '2024-03-31 14:37:05', NULL, NULL),
-(15, 'Sifulan', 'sifulan@gmail.com', 'operator', '$2y$10$kV/UVtGvP883eV4XZ80MaO3LSs6BM.Ha5YrgohFp8C9VcfQKcuUkm', 1, '66091abff0de8.png', '2024-03-31 15:11:43', NULL, NULL),
-(16, 'Sifulan', 'sifulan@gmail.com', 'operator', '$2y$10$TbJktTrVsi9Xv7mAlYnd3OqV0BlTDALoM1eNJ7cWDkKnQb0yjDrk2', 1, '66091bafcc01e.png', '2024-03-31 15:15:43', NULL, '2024-04-09 11:33:30'),
-(17, 'asd', 'asd@gmail.com', 'asd', '$2y$10$wggMSWhaHhzxG.NtdOCa5uccy1A8lTKhVGKIiw2l62YGUIxbfK1bq', 1, '66091c1b53ab9.jpg', '2024-03-31 15:17:31', NULL, '2024-03-31 20:19:50'),
-(18, 'Frengky', 'frengkysky645@gmail.com', 'frengky', '$2y$10$QjmpG07nIUgBQ9J/sluRCO/6kGigdnDfhYbjKqW.rpCKCGiKgnMv.', 1, '660921adb12f2.jpg', '2024-03-31 15:41:17', NULL, '2024-03-31 20:08:05');
+(1, 'Anggraini Agustin Saputri', 'anggrainiagustinks@gmail.com', 'putri', '$2y$10$QjmpG07nIUgBQ9J/sluRCO/6kGigdnDfhYbjKqW.rpCKCGiKgnMv.', 2, '66652f40a6c1a.jpeg', '2024-06-22 12:26:30', '2024-06-22 12:48:17', NULL),
+(2, 'Fahrul Rozi S.Pd', 'kades@gmail.com', 'kades', '$2y$10$QjmpG07nIUgBQ9J/sluRCO/6kGigdnDfhYbjKqW.rpCKCGiKgnMv.', 1, '66091bafcc01e.png', '2024-06-22 12:43:28', '2024-06-22 12:49:39', NULL);
 
 -- --------------------------------------------------------
 
@@ -303,13 +291,13 @@ ALTER TABLE `sejarah`
 -- AUTO_INCREMENT for table `surat`
 --
 ALTER TABLE `surat`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `visi_misi`

@@ -17,25 +17,25 @@ if (isset($_POST['submit'])) {
       } elseif ($surat['id_jenis'] == 2) {
         echo "<script>
             alert('Surat Berhasil Approve');
-            document.location.href = 'export/domisili.php?id=$id';
+            document.location.href = 'export/surat-domisili.php?id=$id';
         </script>";
       } elseif ($surat['id_jenis'] == 3) {
         
         echo "<script>
             alert('Surat Berhasil Approve');
-            document.location.href = 'export/domisili.php?id=$id';
+            document.location.href = 'export/surat-usaha.php?id=$id';
         </script>";
       } elseif ($surat['id_jenis'] == 4) {
         
         echo "<script>
             alert('Surat Berhasil Approve');
-            document.location.href = 'export/domisili.php?id=$id';
+            document.location.href = 'export/surat-kematian.php?id=$id';
         </script>";
       } elseif ($surat['id_jenis'] == 5) {
         
         echo "<script>
             alert('Surat Berhasil Approve');
-            document.location.href = 'export/domisili.php?id=$id';
+            document.location.href = 'export/surat-pengantar-nikah.php?id=$id';
         </script>";
       }
     } else {
@@ -254,6 +254,8 @@ if (isset($_POST['submit'])) {
                   Approve
                 </button>
                 
+                <!-- <button type="button" class="btn btn-sm btn-primary float-right" data-toggle="modal" data-target="#modalUbah">Update</button> -->
+                
                 <button type="submit" name="submit" class="btn btn-sm btn-danger float-right mr-2">
                   <i class="fas fa-fw fa-times"></i>
                   Tolak
@@ -285,6 +287,20 @@ if (isset($_POST['submit'])) {
       </section>
       <!-- /.content -->
     </div>
+
+    <div class="modal fade" id="modalUbah" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header bg-secondary text-white">
+        <h5 class="modal-title" id="exampleModalLabel"><i class="fas fa-edit"></i> Persetujuan Surat</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+
+    </div>
+  </div>
 
 
 <?php 
