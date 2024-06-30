@@ -15,13 +15,13 @@ $dotenv->load();
 $id = (int)$_GET['id'];
 $surat = query("SELECT s.*, ms.nama_surat FROM surat s LEFT JOIN ms_surat ms ON ms.id = s.id_jenis WHERE s.id = $id")[0];
 $level_akses = (int)$_SESSION['level'];
+$id_user = (int)$_SESSION['level'];
 
-sendEmail($id, $surat);
+sendEmail($id, $id_user, $surat);
 
 
-function sendEmail($id, $data) {
+function sendEmail($id, $id_user, $data) {
 
-    
 ?>
 
 <!DOCTYPE html>
@@ -36,18 +36,13 @@ function sendEmail($id, $data) {
 
 <?php 
   
-// Define the file path
-$file_path = 'public/pdf/' . $data['filesSurat'];
-
-// Check if the file path is resolved correctly
-$resolved_path = realpath($file_path);
 
 try {
     // Create a new PHPMailer instance
     $mail = new PHPMailer(true);
     
     // Server settings
-    $mail->SMTPDebug = 0;                                  // Enable verbose debug output
+    $mail->SMTPDebug = 2;                                  // Enable verbose debug output
     $mail->isSMTP();                                            //Send using SMTP
         $mail->Host       = 'smtp.gmail.com';                     //Set the SMTP server to send through
         $mail->SMTPAuth   = true;                                   //Enable SMTP authentication
@@ -59,25 +54,21 @@ try {
     // Recipients
         $mail->setFrom('siakasmaran@gmail.com', 'SIA-KASMARAN');
         $mail->addAddress($data['email'], 'User');     //Add a recipient
-        
-
-    // Attachments
-    $mail->addAttachment($resolved_path);                   // Add attachment
 
 
         //Content
         $mail->isHTML(true);                                  //Set email format to HTML
         $mail->Subject = 'Feedback Pengajuan Layanan Adminsitrasi [REJECTED]';
-        $mail->Body    = 'Selamat Pengajuan Anda telah <b>Disetujui</b>, berikut lampiran File Anda. <br>
+        $mail->Body    = "Pengajuan Anda telah <b style='color: red;'>Ditolak</b>, silahkan untuk mengajukan ulang dengan data yang sesuai. <br>
         <small>*Mohon untuk tidak membalas pesan ini.</small><br><br>
-        Terimakasih';
+        Terimakasih";
         // $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
 
     // Send the email
     $mail->send();
     
     global $db;
-    $query = "UPDATE `surat` SET sendAt = CURRENT_TIMESTAMP WHERE id = $id";
+    $query = "UPDATE `surat` SET rejectedAt = CURRENT_TIMESTAMP, rejectedBy = $id_user WHERE id = $id";
     mysqli_query($db, $query);
 
 

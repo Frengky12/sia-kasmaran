@@ -109,8 +109,15 @@ $pdf->Cell(0,5,'Pada Tanggal : 05 April 2023',0,1,'L');
 $pdf->Ln(5);
 // Position the signature to the right
 $pdf->SetX(120);
-$pdf->Cell(0,10,'KEPALA DESA KASMARAN',0,1,'C');
-$pdf->Ln(20);
+$pdf->Cell(0,10,'Kepala Desa Kasmaran',0,1,'C');
+
+$pdf->Ln(0);
+// Add signature image
+// $pdf->SetX(80);
+// $pdf->Image('../public/image/img/signature.jpg', 143, $pdf->GetY(), 28); // Adjust the path and position accordingly
+$pdf->Image('../public/image/img/signature.jpg', 135, $pdf->GetY(), 40); // Adjust the path and position accordingly
+$pdf->Ln(30);
+
 $pdf->SetX(120);
 $pdf->Cell(0,10,'FAHRUL ROZI, S.Pd',0,1,'C');
 
@@ -130,12 +137,10 @@ try {
     mysqli_query($db, $query);
 
 
-
-    echo "
-    <script>
+    echo"<script>
             Swal.fire({
                 title: 'Success!',
-                text: 'Email has been sent successfully.',
+                text: 'Surat Berhasil Dibuat',
                 icon: 'success',
                 confirmButtonText: 'OK'
             }).then((result) => {
@@ -143,17 +148,13 @@ try {
                     window.location.href = '../detail-surat.php?id=$id';
                 }
             });
-          </script>
-    ";
-
-    return true;
+          </script>";
 } catch (Exception $e) {
 
-    echo "
-    <script>
+    echo"<script>
             Swal.fire({
                 title: 'Failed!',
-                text: 'Email has been sent failed.',
+                text: 'Surat Gagal Dibuat',
                 icon: 'error',
                 confirmButtonText: 'OK'
             }).then((result) => {
@@ -161,9 +162,7 @@ try {
                     window.location.href = '../detail-surat.php?id=$id';
                 }
             });
-          </script>
-    ";
-    return false;
+          </script>";
 }
 
 ?>

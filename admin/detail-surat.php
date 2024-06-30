@@ -254,11 +254,12 @@ if (isset($_POST['submit'])) {
                   Approve
                 </button>
                 
-                
-                <button type="submit" name="submit" class="btn btn-sm btn-danger float-right mr-2">
+              <?php if ($surat['rejectedAt'] == NULL) { ?>
+                <a href="sendEmailReject.php?id=<?= $surat['id'] ?>" class="btn btn-sm btn-danger float-right mr-2">
                   <i class="fas fa-fw fa-times"></i>
                   Tolak
-                </button>
+                </a>
+              <?php } ?>
 
                 <?php } ?>
                 
@@ -268,11 +269,14 @@ if (isset($_POST['submit'])) {
                     <i class="fas fa-fw fa-check"></i>
                     Validasi
                   </button>
-                  
-                <button type="submit" name="submit" class="btn btn-sm btn-danger float-right mr-2">
+                
+              <?php if ($surat['rejectedAt'] == NULL) { ?>
+                <a href="sendEmailReject.php?id=<?= $surat['id'] ?>" class="btn btn-sm btn-danger float-right mr-2">
                   <i class="fas fa-fw fa-times"></i>
                   Tolak
-                </button>
+                </a>
+              <?php } ?>
+
                   <?php } ?>
 
                   <?php if ($surat['approvedAt'] != NULL) { ?>

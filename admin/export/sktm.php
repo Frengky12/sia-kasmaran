@@ -102,15 +102,21 @@ $pdf->SetX(132);
 $pdf->Cell(0,5,'Kasmaran, ' . $currentDate,0,1,'L');
 // Position the signature to the right
 $pdf->SetX(120);
-$pdf->Cell(0,10,'KEPALA DESA KASMARAN',0,1,'C');
-$pdf->Ln(20);
+$pdf->Cell(0,10,'Kepala Desa Kasmaran',0,1,'C');
+
+$pdf->Ln(0);
+// Add signature image
+// $pdf->SetX(80);
+$pdf->Image('../public/image/img/signature.jpg', 135, $pdf->GetY(), 28); // Adjust the path and position accordingly
+$pdf->Ln(30);
+
+
 $pdf->SetX(120);
 $pdf->Cell(0,10,'FAHRUL ROZI, S.Pd',0,1,'C');
 
 // Directory where you want to save the PDF
 $savePath = '../public/pdf/';
 $filename = 'SKTM-'. $surat['nik'] . '-' . uniqid() . '.pdf';
-
 
 try {
     // Output the PDF to the specified directory
