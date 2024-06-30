@@ -254,7 +254,6 @@ if (isset($_POST['submit'])) {
                   Approve
                 </button>
                 
-                <!-- <button type="button" class="btn btn-sm btn-primary float-right" data-toggle="modal" data-target="#modalUbah">Update</button> -->
                 
                 <button type="submit" name="submit" class="btn btn-sm btn-danger float-right mr-2">
                   <i class="fas fa-fw fa-times"></i>
@@ -276,6 +275,13 @@ if (isset($_POST['submit'])) {
                 </button>
                   <?php } ?>
 
+                  <?php if ($surat['approvedAt'] != NULL) { ?>
+                    <div class="btn btn btn-sm btn-primary float-right mr 2" data-toggle="modal" data-target="#modalKirim">
+                      <i class="fa fa-paper-plane" aria-hidden="true"></i>
+                      Kirim Surat
+                    </div>
+                  <?php }; ?>
+
                   <a href="index.php" class="btn btn-sm btn-secondary float-right mr-2">
                     Close
                   </a>
@@ -288,18 +294,46 @@ if (isset($_POST['submit'])) {
       <!-- /.content -->
     </div>
 
-    <div class="modal fade" id="modalUbah" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
+  <div class="modal fade" id="modalKirim" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">
-      <div class="modal-header bg-secondary text-white">
-        <h5 class="modal-title" id="exampleModalLabel"><i class="fas fa-edit"></i> Persetujuan Surat</h5>
+      <div class="modal-header bg-primary text-white">
+        <h5 class="modal-title" id="exampleModalLabel">Persetujuan Kirim Surat</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
+        <?php if ($surat['sendAt'] == NULL) { ?>
 
-    </div>
+            <!-- Alert dengan warna danger -->
+            <div class="alert alert-danger" role="alert">
+              Surat Belum di kirim ke pengaju.
+            </div>
+        <?php } else { ?>
+          <!-- Alert dengan warna success -->
+          <div class="alert alert-success" role="alert">
+              Surat Telah terkirim ke pengaju.
+            </div>
+        <?php }?>
+
+        <?php if ($surat['filesSurat'] != NULL) { ?>
+          <embed src="public/pdf/<?= $surat['filesSurat']; ?>" type="application/pdf" width="100%" height="600px" />
+        <?php } ?>
+      </div>
+      
+      <div class="modal-footer">
+
+          <?php if ($surat['sendAt'] == NULL) { ?>
+            <a href="sendEmailSurat.php?id=<?= $surat['id'] ?>" class="btn btn btn-sm btn-primary float-right mr 2">
+            <i class="fa fa-paper-plane" aria-hidden="true"></i>
+            Kirim Surat
+          </a>
+          <?php } ?>
+          
+      </div>
+  </div>
+  </div>
   </div>
 
 

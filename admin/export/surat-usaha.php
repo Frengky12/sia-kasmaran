@@ -14,6 +14,17 @@ $id = (int)$_GET['id'];
 $surat = query("SELECT s.*, ms.nama_surat FROM surat s LEFT JOIN ms_surat ms ON ms.id = s.id_jenis WHERE s.id = $id")[0];
 $level_akses = (int)$_SESSION['level'];
 
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+
+</head>
+</html>
+
+<?php 
 
 class PDF extends FPDF
 {
@@ -103,5 +114,56 @@ $pdf->Ln(20);
 $pdf->SetX(120);
 $pdf->Cell(0,10,'FAHRUL ROZI, S.Pd',0,1,'C');
 
-$pdf->Output();
+
+
+// $pdf->Output();
+
+$savePath = '../public/pdf/';
+$filename = 'SKU-'. $surat['nik'] . '-' . uniqid() . '.pdf';
+
+try {
+    // Output the PDF to the specified directory
+    $pdf->Output($savePath . $filename, 'F');
+
+    global $db;
+    $query = "UPDATE `surat` SET filesSurat = '$filename' WHERE id = $id";
+    mysqli_query($db, $query);
+
+
+
+    echo "
+    <script>
+            Swal.fire({
+                title: 'Success!',
+                text: 'Email has been sent successfully.',
+                icon: 'success',
+                confirmButtonText: 'OK'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    window.location.href = '../detail-surat.php?id=$id';
+                }
+            });
+          </script>
+    ";
+
+    return true;
+} catch (Exception $e) {
+
+    echo "
+    <script>
+            Swal.fire({
+                title: 'Failed!',
+                text: 'Email has been sent failed.',
+                icon: 'error',
+                confirmButtonText: 'OK'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    window.location.href = '../detail-surat.php?id=$id';
+                }
+            });
+          </script>
+    ";
+    return false;
+}
+
 ?>

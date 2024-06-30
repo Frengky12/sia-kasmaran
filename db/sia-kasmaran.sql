@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 22, 2024 at 08:08 AM
--- Server version: 10.4.32-MariaDB
--- PHP Version: 8.2.12
+-- Waktu pembuatan: 30 Jun 2024 pada 10.38
+-- Versi server: 10.4.32-MariaDB
+-- Versi PHP: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,7 +24,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `informasi`
+-- Struktur dari tabel `informasi`
 --
 
 CREATE TABLE `informasi` (
@@ -39,7 +39,7 @@ CREATE TABLE `informasi` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `informasi`
+-- Dumping data untuk tabel `informasi`
 --
 
 INSERT INTO `informasi` (`id`, `judul`, `isi`, `picture`, `createdAt`, `createdBy`, `deletedAt`, `deletedBy`) VALUES
@@ -49,7 +49,7 @@ INSERT INTO `informasi` (`id`, `judul`, `isi`, `picture`, `createdAt`, `createdB
 -- --------------------------------------------------------
 
 --
--- Table structure for table `kontak`
+-- Struktur dari tabel `kontak`
 --
 
 CREATE TABLE `kontak` (
@@ -65,7 +65,7 @@ CREATE TABLE `kontak` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `kontak`
+-- Dumping data untuk tabel `kontak`
 --
 
 INSERT INTO `kontak` (`id`, `email`, `wa`, `alamat`, `fb`, `ig`, `map`, `updatedBy`, `updatedAt`) VALUES
@@ -74,7 +74,7 @@ INSERT INTO `kontak` (`id`, `email`, `wa`, `alamat`, `fb`, `ig`, `map`, `updated
 -- --------------------------------------------------------
 
 --
--- Table structure for table `ms_surat`
+-- Struktur dari tabel `ms_surat`
 --
 
 CREATE TABLE `ms_surat` (
@@ -83,7 +83,7 @@ CREATE TABLE `ms_surat` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `ms_surat`
+-- Dumping data untuk tabel `ms_surat`
 --
 
 INSERT INTO `ms_surat` (`id`, `nama_surat`) VALUES
@@ -96,7 +96,7 @@ INSERT INTO `ms_surat` (`id`, `nama_surat`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `sejarah`
+-- Struktur dari tabel `sejarah`
 --
 
 CREATE TABLE `sejarah` (
@@ -109,7 +109,7 @@ CREATE TABLE `sejarah` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `sejarah`
+-- Dumping data untuk tabel `sejarah`
 --
 
 INSERT INTO `sejarah` (`id`, `judul`, `isi`, `picture`, `updatedAt`, `updatedBy`) VALUES
@@ -118,7 +118,7 @@ INSERT INTO `sejarah` (`id`, `judul`, `isi`, `picture`, `updatedAt`, `updatedBy`
 -- --------------------------------------------------------
 
 --
--- Table structure for table `surat`
+-- Struktur dari tabel `surat`
 --
 
 CREATE TABLE `surat` (
@@ -150,25 +150,27 @@ CREATE TABLE `surat` (
   `approvedAt` datetime DEFAULT NULL,
   `approvedBy` int(11) DEFAULT NULL,
   `rejectedAt` datetime DEFAULT NULL,
-  `rejectedBy` int(11) DEFAULT NULL
+  `rejectedBy` int(11) DEFAULT NULL,
+  `filesSurat` varchar(150) DEFAULT NULL,
+  `sendAt` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `surat`
+-- Dumping data untuk tabel `surat`
 --
 
-INSERT INTO `surat` (`id`, `id_jenis`, `nik`, `nama`, `email`, `file`, `no_hp`, `tempat_lahir`, `tanggal_lahir`, `pekerjaan`, `agama`, `jenKel`, `alamat`, `keperluan_surat`, `nama_usaha`, `alamat_usaha`, `status`, `penyebab_kematian`, `tanggal_kematian`, `lokasi_kematian`, `nama_ortu_lk`, `nama_ortu_pr`, `createdAt`, `validatedAt`, `validatedBy`, `approvedAt`, `approvedBy`, `rejectedAt`, `rejectedBy`) VALUES
-(1, 1, '', 'Frengky', 'frengkysky645@gmail.com', 'sktm-6661d43031fa0.pdf', '1212', 'Rantau Panjang', '2024-06-06', '1212', '1212', 'L', 'asda', NULL, NULL, NULL, '', NULL, NULL, NULL, NULL, NULL, '2024-06-06 22:22:24', NULL, NULL, NULL, NULL, NULL, NULL),
-(2, 2, '', 'Frengky 2', 'frengkysky645@gmail.com', 'skd-66630d4c361a4.pdf', '1212', 'Rantau Panjang', '2024-06-07', 'asdasd', 'Islam', 'P', 'Rantau Panjang', NULL, NULL, NULL, 'BN', NULL, NULL, NULL, NULL, NULL, '2024-06-07 20:38:20', NULL, NULL, NULL, NULL, NULL, NULL),
-(3, 3, '', 'Frengky 3', 'frengkysky645@gmail.com', 'sku-66631080efa7a.png', '1212', 'Rantau Panjang', '2024-06-07', 'asdasd', 'Islam', 'L', 'Kasmaran', 'Minjam Bank', 'Cucian Uang', 'Rantau Panjang', 'N', NULL, NULL, NULL, NULL, NULL, '2024-06-07 20:52:00', NULL, NULL, NULL, NULL, NULL, NULL),
-(4, 4, '', 'Sifulani', 'Kona@gmail.com', 'skk-6663131066a8f.png', '1212', 'Talang', '2024-06-07', 'Petani', 'Islam', 'P', 'Talang', NULL, NULL, NULL, 'N', '', '2024-06-07T21:02', 'Talang ubi', NULL, NULL, '2024-06-07 21:02:56', NULL, NULL, NULL, NULL, NULL, NULL),
-(5, 5, '', 'Frengky 5', 'frengkysky645@gmail.com', 'spn-666315ea6d42f.pdf', '081258401008', 'Rantau Panjang', '2024-06-07', 'Web Developer', 'Islam', 'L', 'Rantau Panjang', NULL, NULL, NULL, 'BN', NULL, NULL, NULL, 'Saian', 'Huzami', '2024-06-07 21:15:06', NULL, NULL, NULL, NULL, NULL, NULL),
-(6, 1, '1234567891011121', 'Sifulani', 'frengkysky645@gmail.com', 'sktm-66766733329c4.png', '081258401008', 'Rantau Panjang', '2024-06-22', 'Web Developer', 'Islam', 'L', 'Rantau Panjang', NULL, NULL, NULL, 'BN', NULL, NULL, NULL, NULL, NULL, '2024-06-22 12:54:59', '2024-06-22 12:55:19', 1, '2024-06-22 13:00:58', 2, NULL, NULL);
+INSERT INTO `surat` (`id`, `id_jenis`, `nik`, `nama`, `email`, `file`, `no_hp`, `tempat_lahir`, `tanggal_lahir`, `pekerjaan`, `agama`, `jenKel`, `alamat`, `keperluan_surat`, `nama_usaha`, `alamat_usaha`, `status`, `penyebab_kematian`, `tanggal_kematian`, `lokasi_kematian`, `nama_ortu_lk`, `nama_ortu_pr`, `createdAt`, `validatedAt`, `validatedBy`, `approvedAt`, `approvedBy`, `rejectedAt`, `rejectedBy`, `filesSurat`, `sendAt`) VALUES
+(1, 1, '1234567891011121', 'Anggraini Agustin Saputri', 'anggrainiagustinks@gmail.com', 'sktm-66766733329c4.png', '1212', 'Kasmaaran', '2024-06-06', '1212', '1212', 'L', 'asda', NULL, NULL, NULL, '', NULL, NULL, NULL, NULL, NULL, '2024-06-06 22:22:24', '2024-06-29 15:48:53', NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(2, 2, '1234567891011121', 'Frengky 2', 'frengkysky645@gmail.com', 'skd-66631080efa7a.png', '1212', 'Rantau Panjang', '2024-06-07', 'asdasd', 'Islam', 'P', 'Rantau Panjang', NULL, NULL, NULL, 'BN', NULL, NULL, NULL, NULL, NULL, '2024-06-07 20:38:20', '2024-06-30 14:27:59', 1, NULL, NULL, NULL, NULL, NULL, NULL),
+(3, 3, '1234567891011121', 'Frengky 3', 'frengkysky645@gmail.com', 'sku-66631080efa7a.png', '1212', 'Rantau Panjang', '2024-06-07', 'asdasd', 'Islam', 'L', 'Kasmaran', 'Minjam Bank', 'Cucian Uang', 'Rantau Panjang', 'N', NULL, NULL, NULL, NULL, NULL, '2024-06-07 20:52:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(4, 4, '1234567891011121', 'Sifulani', 'Kona@gmail.com', 'skk-6663131066a8f.png', '1212', 'Talang', '2024-06-07', 'Petani', 'Islam', 'P', 'Talang', NULL, NULL, NULL, 'N', '', '2024-06-07T21:02', 'Talang ubi', NULL, NULL, '2024-06-07 21:02:56', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(5, 5, '1234567891011121', 'Frengky 5', 'frengkysky645@gmail.com', 'spn-666315ea6d42f.pdf', '081258401008', 'Rantau Panjang', '2024-06-07', 'Web Developer', 'Islam', 'L', 'Rantau Panjang', NULL, NULL, NULL, 'BN', NULL, NULL, NULL, 'Saian', 'Huzami', '2024-06-07 21:15:06', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(6, 1, '1234567891011121', 'Sifulani', 'frengkysky645@gmail.com', 'sktm-66766733329c4.png', '081258401008', 'Rantau Panjang', '2024-06-22', 'Web Developer', 'Islam', 'L', 'Rantau Panjang', NULL, NULL, NULL, 'BN', NULL, NULL, NULL, NULL, NULL, '2024-06-22 12:54:59', '2024-06-22 12:55:19', 1, NULL, NULL, NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `user`
+-- Struktur dari tabel `user`
 --
 
 CREATE TABLE `user` (
@@ -185,17 +187,17 @@ CREATE TABLE `user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `user`
+-- Dumping data untuk tabel `user`
 --
 
 INSERT INTO `user` (`id`, `nama`, `email`, `username`, `password`, `level`, `foto`, `createdAt`, `lastLogin`, `deletedAt`) VALUES
-(1, 'Anggraini Agustin Saputri', 'anggrainiagustinks@gmail.com', 'putri', '$2y$10$QjmpG07nIUgBQ9J/sluRCO/6kGigdnDfhYbjKqW.rpCKCGiKgnMv.', 2, '66652f40a6c1a.jpeg', '2024-06-22 12:26:30', '2024-06-22 12:48:17', NULL),
-(2, 'Fahrul Rozi S.Pd', 'kades@gmail.com', 'kades', '$2y$10$QjmpG07nIUgBQ9J/sluRCO/6kGigdnDfhYbjKqW.rpCKCGiKgnMv.', 1, '66091bafcc01e.png', '2024-06-22 12:43:28', '2024-06-22 12:49:39', NULL);
+(1, 'Anggraini Agustin Saputri', 'anggrainiagustinks@gmail.com', 'putri', '$2y$10$QjmpG07nIUgBQ9J/sluRCO/6kGigdnDfhYbjKqW.rpCKCGiKgnMv.', 2, '66652f40a6c1a.jpeg', '2024-06-22 12:26:30', '2024-06-30 14:27:40', NULL),
+(2, 'Fahrul Rozi S.Pd', 'kades@gmail.com', 'kades', '$2y$10$QjmpG07nIUgBQ9J/sluRCO/6kGigdnDfhYbjKqW.rpCKCGiKgnMv.', 1, '66091bafcc01e.png', '2024-06-22 12:43:28', '2024-06-30 14:28:42', NULL);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `visi_misi`
+-- Struktur dari tabel `visi_misi`
 --
 
 CREATE TABLE `visi_misi` (
@@ -207,7 +209,7 @@ CREATE TABLE `visi_misi` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `visi_misi`
+-- Dumping data untuk tabel `visi_misi`
 --
 
 INSERT INTO `visi_misi` (`id`, `visi`, `misi`, `updatedAt`, `updatedBy`) VALUES
@@ -218,89 +220,89 @@ INSERT INTO `visi_misi` (`id`, `visi`, `misi`, `updatedAt`, `updatedBy`) VALUES
 --
 
 --
--- Indexes for table `informasi`
+-- Indeks untuk tabel `informasi`
 --
 ALTER TABLE `informasi`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `kontak`
+-- Indeks untuk tabel `kontak`
 --
 ALTER TABLE `kontak`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `ms_surat`
+-- Indeks untuk tabel `ms_surat`
 --
 ALTER TABLE `ms_surat`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `sejarah`
+-- Indeks untuk tabel `sejarah`
 --
 ALTER TABLE `sejarah`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `surat`
+-- Indeks untuk tabel `surat`
 --
 ALTER TABLE `surat`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `user`
+-- Indeks untuk tabel `user`
 --
 ALTER TABLE `user`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `visi_misi`
+-- Indeks untuk tabel `visi_misi`
 --
 ALTER TABLE `visi_misi`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT untuk tabel yang dibuang
 --
 
 --
--- AUTO_INCREMENT for table `informasi`
+-- AUTO_INCREMENT untuk tabel `informasi`
 --
 ALTER TABLE `informasi`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT for table `kontak`
+-- AUTO_INCREMENT untuk tabel `kontak`
 --
 ALTER TABLE `kontak`
   MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT for table `ms_surat`
+-- AUTO_INCREMENT untuk tabel `ms_surat`
 --
 ALTER TABLE `ms_surat`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT for table `sejarah`
+-- AUTO_INCREMENT untuk tabel `sejarah`
 --
 ALTER TABLE `sejarah`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT for table `surat`
+-- AUTO_INCREMENT untuk tabel `surat`
 --
 ALTER TABLE `surat`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- AUTO_INCREMENT for table `user`
+-- AUTO_INCREMENT untuk tabel `user`
 --
 ALTER TABLE `user`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT for table `visi_misi`
+-- AUTO_INCREMENT untuk tabel `visi_misi`
 --
 ALTER TABLE `visi_misi`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;

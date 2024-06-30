@@ -2,13 +2,24 @@
 
 require('../skeleton/config/main.php');
 require('../vendor/setasign/fpdf/fpdf.php');
-require('../public/debug.php');
-
 
 $id = (int)$_GET['id'];
 $surat = query("SELECT s.*, ms.nama_surat FROM surat s LEFT JOIN ms_surat ms ON ms.id = s.id_jenis WHERE s.id = $id")[0];
 $level_akses = (int)$_SESSION['level'];
 
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+
+</head>
+</html>
+
+
+<?php 
 class PDF extends FPDF
 {
     // Header
@@ -49,7 +60,7 @@ $pdf = new PDF();
 $pdf->AliasNbPages();
 $pdf->AddPage();
 $pdf->SetFont('Arial','B',12);
-$pdf->Cell(0,10,'SURAT KETERANGAN BERDOMISILI',0,1,'C');
+$pdf->Cell(0,10,'SURAT KETERANGAN TIDAK MAMPU',0,1,'C');
 $pdf->SetFont('Arial','',10);
 $pdf->Cell(0,3,'NOMOR : '. $surat['id'] .' / 2009/I/' . date('Y'),0,1,'C');
 
@@ -68,7 +79,7 @@ $pdf->AddData('Jenis Kelamin', $surat == 'L' ? 'Laki-laki' : 'Perempuan');
 $pdf->AddData('Tempat, Tanggal Lahir', $surat['tempat_lahir'] .','. $surat['tanggal_lahir']);
 $pdf->AddData('Agama', $surat['agama']);
 $pdf->AddData('Pekerjaan', $surat['pekerjaan'] == NULL ? '-' : $surat['pekerjaan']);
-$pdf->AddData('Status Pernikahan', $surat['status'] == 'N' ? 'Kawin' : 'Belum Kawin');
+$pdf->AddData('Status Pernikahan', $surat['status'] == 'N' ? 'Menikah' : 'Belum Menikah');
 $pdf->AddData('Alamat', $surat['alamat']);
 
 $content = "
@@ -98,18 +109,43 @@ $pdf->Cell(0,10,'FAHRUL ROZI, S.Pd',0,1,'C');
 
 // Directory where you want to save the PDF
 $savePath = '../public/pdf/';
-$filename = uniqid().'.pdf';
+$filename = 'SKTM-'. $surat['nik'] . '-' . uniqid() . '.pdf';
 
-// Output the PDF to the specified directory
-$pdf->Output($savePath . $filename, 'F');
-// $pdf->Output();
-echo "PDF has been saved to " . $savePath . $filename . date('H:i:s') . "\n";
 
-function call($filename) {
-    echo 'Masuk at' . date('H:i:s');
-    sendEmail($filename);
+try {
+    // Output the PDF to the specified directory
+    $pdf->Output($savePath . $filename, 'F');
+
+    global $db;
+    $query = "UPDATE `surat` SET filesSurat = '$filename' WHERE id = $id";
+    mysqli_query($db, $query);
+
+    echo"<script>
+            Swal.fire({
+                title: 'Success!',
+                text: 'Surat Berhasil Dibuat',
+                icon: 'success',
+                confirmButtonText: 'OK'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    window.location.href = '../detail-surat.php?id=$id';
+                }
+            });
+          </script>";
+} catch (Exception $e) {
+
+    echo"<script>
+            Swal.fire({
+                title: 'Failed!',
+                text: 'Surat Gagal Dibuat',
+                icon: 'error',
+                confirmButtonText: 'OK'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    window.location.href = '../detail-surat.php?id=$id';
+                }
+            });
+          </script>";
 }
 
-sleep(10);
-call($filename)
 ?>
