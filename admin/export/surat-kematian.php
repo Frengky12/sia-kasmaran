@@ -14,6 +14,20 @@ $id = (int)$_GET['id'];
 $surat = query("SELECT s.*, ms.nama_surat FROM surat s LEFT JOIN ms_surat ms ON ms.id = s.id_jenis WHERE s.id = $id")[0];
 $level_akses = (int)$_SESSION['level'];
 
+$dateString = $surat['tanggal_kematian'];
+
+// Membuat objek DateTime dari string
+$date = new DateTime($dateString);
+
+// Format hari dalam bahasa Indonesia
+$dayOfWeek = strftime('%A', $date->getTimestamp());
+
+// Format tanggal dalam format Indonesia (contoh: 07 Juni 2024)
+$dateFormatted = strftime('%d %B %Y', $date->getTimestamp());
+
+// Format waktu dalam format 24-jam (contoh: 21:02)
+$timeFormatted = $date->format('H:i');
+
 ?>
 
 <!DOCTYPE html>
@@ -64,48 +78,48 @@ $pdf->Cell(0,3,'NOMOR : '. $surat['id'] .' / 2009/IV/' . date('Y'),0,1,'C');
 
 // Add a line under the title
 $pdf->Line(10, 37, 200, 37);
-$pdf->Ln(10);
+$pdf->Ln(7);
 
 $pdf->SetFont('Arial','',12);
 $pdf->MultiCell(0,5,'Yang bertanda tangan dibawah ini, Kepala Desa Kasmaran Kecamatan Babat Toman Kabupaten Musi Banyuasin menerangkan bahwa :',0,'L');
-$pdf->Ln(5);
+$pdf->Ln(3);
 
 $data = [
-    'Nama' => 'RUSNAWATI',
-    'NIK' => '1606065201540002',
-    'Jenis Kelamin' => 'Perempuan',
-    'Tempat Tgl. Lahir' => 'Kasmaran, 12-10-1965',
-    'Agama' => 'Islam',
-    'Pekerjaan' => 'Pegawai Negeri Sipil (PNS)',
-    'Alamat' => 'Dusun II Desa Kasmaran Kec. Babat Toman'
+    'Nama' => $surat['nama'],
+    'NIK' => $surat['nik'],
+    'Jenis Kelamin' =>  $surat == 'L' ? 'Laki-laki' : 'Perempuan',
+    'Tempat Tgl. Lahir' => $surat['tempat_lahir'] .', '. $surat['tanggal_lahir'],
+    'Agama' =>  $surat['agama'],
+    'Pekerjaan' => $surat['pekerjaan'],
+    'Alamat' => $surat['alamat']
 ];
 
 foreach ($data as $key => $value) {
-    $pdf->Cell(60,7,$key,0,0,'L');
-    $pdf->Cell(5,7,':',0,0,'L');
-    $pdf->MultiCell(0,7,$value,0,'L');
+    $pdf->Cell(60,5,$key,0,0,'L');
+    $pdf->Cell(5,5,':',0,0,'L');
+    $pdf->MultiCell(0,5,$value,0,'L');
 }
 
-$pdf->Ln(5);
+$pdf->Ln(3);
 $pdf->MultiCell(0,7,'Menerangkan dengan sesungguhnya bahwa benar nama tersebut diatas meninggal dunia pada :',0,'L');
 
 $death_info = [
-    'Hari' => 'Jumat',
-    'Tanggal' => '12 Januari 2024',
-    'Jam' => '15.35 WIB',
-    'Tempat' => 'Dirumah',
-    'Disebabkan karena' => 'Sakit'
+    'Hari' => $dayOfWeek,
+    'Tanggal' => $dateFormatted,
+    'Jam' => $timeFormatted .' WIB',
+    'Tempat' => $surat['lokasi_kematian'],
+    'Disebabkan karena' => $surat['penyebab_kematian']
 ];
 
 foreach ($death_info as $key => $value) {
-    $pdf->Cell(60,7,$key,0,0,'L');
-    $pdf->Cell(5,7,':',0,0,'L');
-    $pdf->MultiCell(0,7,$value,0,'L');
+    $pdf->Cell(60,5,$key,0,0,'L');
+    $pdf->Cell(5,5,':',0,0,'L');
+    $pdf->MultiCell(0,5,$value,0,'L');
 }
 
-$pdf->Ln(5);
+$pdf->Ln(3);
 $pdf->MultiCell(0,5,'Demikianlah Surat Keterangan ini dibuat dengan sebenaranya untuk dapat dipergunakan sebagaimana mestinya.',0,'L');
-$pdf->Ln(7);
+$pdf->Ln(5);
 
 $pdf->SetFont('Arial','B',12);
 $pdf->Cell(0,10,'SAKSI-SAKSI',0,1,'L');
@@ -128,7 +142,7 @@ $pdf->Ln(10);
 
 
 $pdf->SetX(120);
-$pdf->Cell(0,5,'Kasmaran, 21 Februari 2024',0,1,'C');
+$pdf->Cell(0,5,'Kasmaran, ' . $currentDate,0,1,'C');
 // Position the signature to the right
 $pdf->SetX(120);
 $pdf->Cell(0,10,'Kepala Desa Kasmaran',0,1,'C');
@@ -137,7 +151,7 @@ $pdf->Ln(0);
 // Add signature image
 // $pdf->SetX(80);
 // $pdf->Image('../public/image/img/signature.jpg', 143, $pdf->GetY(), 28); // Adjust the path and position accordingly
-$pdf->Image('../public/image/img/signature.jpg', 135, $pdf->GetY(), 40); // Adjust the path and position accordingly
+$pdf->Image('../public/image/img/signature.png', 142, $pdf->GetY(), 35); // Adjust the path and position accordingly
 $pdf->Ln(30);
 
 $pdf->SetX(120);

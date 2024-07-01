@@ -72,14 +72,14 @@ $pdf->MultiCell(0,5,'Yang bertanda tangan dibawah ini, Kepala Desa Kasmaran Keca
 $pdf->Ln(5);
 
 $data = [
-    'Nama' => 'YUNIAR EMINANSI',
-    'No NIK' => '1606065806910002',
-    'Jenis Kelamin' => 'Perempuan',
-    'Tempat/Tanggal Lahir' => 'Padang Sidempuan, 18-06-1991',
-    'Agama / Bangsa' => 'Islam / Indonesia',
-    'Status Perkawinan' => 'Kawin',
-    'Pekerjaan' => 'Apoteker',
-    'Alamat' => 'Jl. Tanjung Sari 2 No. 2 RT 033 RW 007 Kel. Bukit Sangkal Kec. Kalidoni Kota Palembang'
+    'Nama' => $surat['nama'],
+    'No NIK' => $surat['nik'],
+    'Jenis Kelamin' =>  $surat == 'L' ? 'Laki-laki' : 'Perempuan',
+    'Tempat/Tanggal Lahir' => $surat['tempat_lahir'] .', '. $surat['tanggal_lahir'],
+    'Agama ' => $surat['agama'],
+    'Status Pernikahan' => $surat['status'] == 'N' ? 'Menikah' : 'Belum Menikah',
+    'Pekerjaan' => $surat['pekerjaan'] == NULL ? '-' : $surat['pekerjaan'],
+    'Alamat' => $surat['alamat']
 ];
 
 foreach ($data as $key => $value) {
@@ -89,13 +89,13 @@ foreach ($data as $key => $value) {
 }
 
 $pdf->Ln(7);
-$pdf->MultiCell(0,7,'Nama tersebut diatas benar menetap / Berdomisili di Dusun II Desa Kasmaran Kecamatan Babat Toman Kabupaten Musi Banyuasin Provinsi Sumatera Selatan sampai dengan sekarang.',0,'L');
+$pdf->MultiCell(0,7,'Nama tersebut diatas benar menetap / Berdomisili di '. $surat['alamat'] .' sampai dengan sekarang.',0,'L');
 $pdf->Ln(7);
 $pdf->MultiCell(0,7,'Demikianlah Surat Keterangan ini kami buat dengan sebenaranya untuk dapat dipergunakan sebagaimana mestinya.',0,'L');
 $pdf->Ln(10);
 
 $pdf->SetX(120);
-$pdf->Cell(0,5,'Kasmaran, 21 Februari 2024',0,1,'C');
+$pdf->Cell(0,5,'Kasmaran,' . $currentDate ,0,1,'C');
 // Position the signature to the right
 $pdf->SetX(120);
 $pdf->Cell(0,10,'Kepala Desa Kasmaran',0,1,'C');
@@ -104,7 +104,7 @@ $pdf->Ln(0);
 // Add signature image
 // $pdf->SetX(80);
 // $pdf->Image('../public/image/img/signature.jpg', 143, $pdf->GetY(), 28); // Adjust the path and position accordingly
-$pdf->Image('../public/image/img/signature.jpg', 135, $pdf->GetY(), 40); // Adjust the path and position accordingly
+$pdf->Image('../public/image/img/signature.png', 142, $pdf->GetY(), 35); // Adjust the path and position accordingly
 $pdf->Ln(30);
 
 $pdf->SetX(120);
@@ -137,6 +137,7 @@ try {
           </script>";
 } catch (Exception $e) {
 
+    echo $e->getMessage();
     echo"<script>
             Swal.fire({
                 title: 'Failed!',

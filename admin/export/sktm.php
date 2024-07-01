@@ -76,7 +76,7 @@ $pdf->Ln(3);
 $pdf->AddData('Nama', $surat['nama']);
 $pdf->AddData('NIK', $surat['nik']);
 $pdf->AddData('Jenis Kelamin', $surat == 'L' ? 'Laki-laki' : 'Perempuan');
-$pdf->AddData('Tempat, Tanggal Lahir', $surat['tempat_lahir'] .','. $surat['tanggal_lahir']);
+$pdf->AddData('Tempat, Tanggal Lahir', $surat['tempat_lahir'] .', '. $surat['tanggal_lahir']);
 $pdf->AddData('Agama', $surat['agama']);
 $pdf->AddData('Pekerjaan', $surat['pekerjaan'] == NULL ? '-' : $surat['pekerjaan']);
 $pdf->AddData('Status Pernikahan', $surat['status'] == 'N' ? 'Menikah' : 'Belum Menikah');
@@ -107,7 +107,7 @@ $pdf->Cell(0,10,'Kepala Desa Kasmaran',0,1,'C');
 $pdf->Ln(0);
 // Add signature image
 // $pdf->SetX(80);
-$pdf->Image('../public/image/img/signature.png', 135, $pdf->GetY(), 40); // Adjust the path and position accordingly
+$pdf->Image('../public/image/img/signature.png', 142, $pdf->GetY(), 35); // Adjust the path and position accordingly
 $pdf->Ln(30);
 
 

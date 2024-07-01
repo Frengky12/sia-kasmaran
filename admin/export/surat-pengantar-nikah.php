@@ -79,7 +79,7 @@ class PDF extends FPDF
 }
 
 // Instanciation of inherited class
-$pdf = new PDF();
+$pdf = new PDF('P', 'mm', 'A4');
 $pdf->AliasNbPages();
 $pdf->AddPage();
 $pdf->SetFont('Arial','',10);
@@ -88,15 +88,15 @@ $pdf->MultiCell(0,1,'Yang bertanda tangan di bawah ini menjelaskan dengan sesung
 $pdf->Ln(5);
 
 $data = [
-    'Nama Lengkap dan Alias' => 'BELA SAPNA ANGGUN SARI',
-    'Binti' => 'AZWAR',
-    'Nomor induk kependudukan' => '1606066110990002',
-    'Tempat dan Tanggal Lahir' => 'Kasmaran, 11-12-1999',
+    'Nama Lengkap dan Alias' => $surat['nama'],
+    'Binti' => $surat['nama_ortu_lk'],
+    'Nomor induk kependudukan' => $surat['nik'],
+    'Tempat dan Tanggal Lahir' => $surat['tempat_lahir'] .', '. $surat['tanggal_lahir'],
     'Kewarganegaraan' => 'Indonesia',
-    'Agama' => 'Islam',
-    'Pekerjaan' => 'Wiraswasta',
-    'Alamat' => 'Dusun II Desa Kasmaran Kec. Babat Toman Kab. Muba',
-    'Status Perkawinan' => 'PERAWAN'
+    'Agama' => $surat['agama'],
+    'Pekerjaan' => $surat['pekerjaan'],
+    'Alamat' => $surat['alamat'],
+    'Status Menikah' => $surat['status'] == 'N' ? 'Menikah' : 'Belum Menikah'
 ];
 
 foreach ($data as $key => $value) {
@@ -111,14 +111,14 @@ $pdf->MultiCell(0,1,'Adalah benar Anak Dari Pernikahan Seorang Pria:',0,'L');
 $pdf->Ln(5);
 
 $data_pria = [
-    'Nama Lengkap' => 'AZWAR',
-    'NIK' => '1606060107600026',
-    'Tempat dan Tanggal Lahir' => 'Karang Waru, 01-07-1960',
-    'Jenis Kelamin' => 'Laki-laki',
+    'Nama Lengkap' => $surat['nama_ortu_lk'],
+    'NIK' => '-',
+    'Tempat dan Tanggal Lahir' => '-',
+    'Jenis Kelamin' => '-',
     'Kewarganegaraan' => 'Indonesia',
     'Agama' => 'Islam',
-    'Pekerjaan' => 'Karyawan Swasta',
-    'Alamat' => 'Dusun II Desa Kasmaran Kec. Babat Toman Kab. Muba'
+    'Pekerjaan' => '-',
+    'Alamat' => $surat['alamat']
 ];
 
 foreach ($data_pria as $key => $value) {
@@ -133,14 +133,14 @@ $pdf->MultiCell(0,1,'Dengan Seorang Wanita:',0,'L');
 $pdf->Ln(5);
 
 $data_wanita = [
-    'Nama Lengkap' => 'HOTAMA (Almh)',
+    'Nama Lengkap' => $surat['nama_ortu_pr'],
     'NIK' => '',
-    'Tempat dan Tanggal Lahir' => '',
-    'Jenis Kelamin' => '',
-    'Kewarganegaraan' => '',
+    'Tempat dan Tanggal Lahir' => '-',
+    'Jenis Kelamin' => '-',
+    'Kewarganegaraan' => 'Indonesia',
     'Agama' => 'Islam',
-    'Pekerjaan' => '',
-    'Alamat' => ''
+    'Pekerjaan' => '-',
+    'Alamat' => $surat['alamat']
 ];
 
 foreach ($data_wanita as $key => $value) {
@@ -155,7 +155,7 @@ $pdf->MultiCell(0,5,'Demikianlah surat keterangan ini dibuat dengan mengingat su
 $pdf->Ln(5);
 
 $pdf->SetX(120);
-$pdf->Cell(0,5,'Kasmaran, 21 Februari 2024',0,1,'C');
+$pdf->Cell(0,5,'Kasmaran, ' . $currentDate,0,1,'C');
 // Position the signature to the right
 $pdf->SetX(120);
 $pdf->Cell(0,10,'Kepala Desa Kasmaran',0,1,'C');
@@ -164,7 +164,7 @@ $pdf->Ln(0);
 // Add signature image
 // $pdf->SetX(80);
 // $pdf->Image('../public/image/img/signature.jpg', 143, $pdf->GetY(), 28); // Adjust the path and position accordingly
-$pdf->Image('../public/image/img/signature.jpg', 135, $pdf->GetY(), 40); // Adjust the path and position accordingly
+$pdf->Image('../public/image/img/signature.png', 142, $pdf->GetY(), 35); // Adjust the path and position accordingly
 $pdf->Ln(30);
 
 $pdf->SetX(120);

@@ -79,15 +79,15 @@ $pdf->MultiCell(0,5,'Dengan ini menerangkan bahwa :',0,'L');
 $pdf->Ln(5);
 
 $data = [
-    'Nama' => 'DENDI APRIADI',
-    'Jenis Kelamin' => 'Laki-laki',
-    'Tempat/Tanggal Lahir' => 'Kasmaran, 22 April 1992',
-    'Agama' => 'Islam',
-    'Kawin/Belum Kawin' => 'Kawin',
-    'Pekerjaan' => 'Wiraswasta',
-    'Alamat' => 'Dusun IV Desa Kasmaran Kec. Babat Toman',
-    'NIK' => '16060622049020002',
-    'No Hp/Wa' => '0821-8280-3811'
+    'Nama' => $surat['nama'],
+    'Jenis Kelamin' =>  $surat == 'L' ? 'Laki-laki' : 'Perempuan',
+    'Tempat/Tanggal Lahir' => $surat['tempat_lahir'] .', '. $surat['tanggal_lahir'],
+    'Agama' => $surat['agama'],
+    'Kawin/Belum Pernikahan' =>  $surat['status'] == 'N' ? 'Menikah' : 'Belum Menikah',
+    'Pekerjaan' => $surat['pekerjaan'] == NULL ? '-' : $surat['pekerjaan'],
+    'Alamat' => $surat['alamat'],
+    'NIK' => $surat['nik'],
+    'No Hp/Wa' => $surat['no_hp']
 ];
 
 foreach ($data as $key => $value) {
@@ -97,7 +97,7 @@ foreach ($data as $key => $value) {
 }
 $pdf->Ln(5);
 
-$pdf->MultiCell(0,5,'Sepengetahuan kami memang benar Saudara tersebut diatas adalah warga Desa Kasmaran Kecamatan Babat Toman dan mempunyai USAHA TOKO MANISAN yang berlokasi kegiatan usaha di Dusun IV Desa Kasmaran, yang sampai sekarang masih aktif. Surat Keterangan usaha ini dibuat untuk keperluan pengajuan pinjaman Usaha kredit KUR ke Bank Mandiri Unit Babat Toman.',0,'L');
+$pdf->MultiCell(0,5,'Sepengetahuan kami memang benar Saudara tersebut diatas adalah warga Desa Kasmaran Kecamatan Babat Toman dan mempunyai '. $surat['nama_usaha'] .' yang berlokasi kegiatan usaha di '. $surat['alamat_usaha'] .', yang sampai sekarang masih aktif. Surat Keterangan usaha ini dibuat untuk keperluan'. $surat['keperluan_surat'] .'.',0,'L');
 $pdf->Ln(5);
 
 $pdf->MultiCell(0,5,'Demikianlah Surat Keterangan ini dibuat dengan sebenarnya untuk dapat dipergunakan sebagaimana mestinya.',0,'L');
@@ -105,7 +105,7 @@ $pdf->Ln(5);
 $pdf->SetX(132);
 $pdf->Cell(0,5,'Dikeluarkan di : Kasmaran',0,1,'L');
 $pdf->SetX(132);
-$pdf->Cell(0,5,'Pada Tanggal : 05 April 2023',0,1,'L');
+$pdf->Cell(0,5,'Pada Tanggal : ' . $currentDate,0,1,'L');
 $pdf->Ln(5);
 // Position the signature to the right
 $pdf->SetX(120);
@@ -115,7 +115,7 @@ $pdf->Ln(0);
 // Add signature image
 // $pdf->SetX(80);
 // $pdf->Image('../public/image/img/signature.jpg', 143, $pdf->GetY(), 28); // Adjust the path and position accordingly
-$pdf->Image('../public/image/img/signature.jpg', 135, $pdf->GetY(), 40); // Adjust the path and position accordingly
+$pdf->Image('../public/image/img/signature.png', 142, $pdf->GetY(), 35); // Adjust the path and position accordingly
 $pdf->Ln(30);
 
 $pdf->SetX(120);
