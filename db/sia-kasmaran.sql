@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 30 Jun 2024 pada 15.51
+-- Waktu pembuatan: 01 Jul 2024 pada 17.26
 -- Versi server: 10.4.32-MariaDB
 -- Versi PHP: 8.2.12
 
@@ -43,8 +43,8 @@ CREATE TABLE `informasi` (
 --
 
 INSERT INTO `informasi` (`id`, `judul`, `isi`, `picture`, `createdAt`, `createdBy`, `deletedAt`, `deletedBy`) VALUES
-(1, 'LOREM IPSUM DOLOR', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', 'picture.png', '2024-04-11 06:58:58', 1, NULL, NULL),
-(2, 'INI BERITA 2', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', 'picture.png', '2024-04-11 06:58:58', 1, NULL, NULL);
+(1, 'LOREM IPSUM DOLOR', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', 'prod-1.jpg', '2024-04-11 06:58:58', 1, NULL, NULL),
+(2, 'INI BERITA 2', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', 'Berita-6652e592c3981.png', '2024-04-11 06:58:58', 1, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -113,7 +113,7 @@ CREATE TABLE `sejarah` (
 --
 
 INSERT INTO `sejarah` (`id`, `judul`, `isi`, `picture`, `updatedAt`, `updatedBy`) VALUES
-(1, 'INI JUDUL SEJARAH', 'Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of \"de Finibus Bonorum et Malorum\" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, \"Lorem ipsum dolor sit amet..\", comes from a line in section 1.10.32.\r\n\r\nThe standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from \"de Finibus Bonorum et Malorum\" by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham', 'poltek.jpg', '2024-06-03 19:48:56', '1');
+(1, 'INI JUDUL SEJARAH', 'Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of \"de Finibus Bonorum et Malorum\" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, \"Lorem ipsum dolor sit amet..\", comes from a line in section 1.10.32.\r\n\r\nThe standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from \"de Finibus Bonorum et Malorum\" by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham', 'bg-depan.png', '2024-06-03 19:48:56', '1');
 
 -- --------------------------------------------------------
 
@@ -160,11 +160,11 @@ CREATE TABLE `surat` (
 --
 
 INSERT INTO `surat` (`id`, `id_jenis`, `nik`, `nama`, `email`, `file`, `no_hp`, `tempat_lahir`, `tanggal_lahir`, `pekerjaan`, `agama`, `jenKel`, `alamat`, `keperluan_surat`, `nama_usaha`, `alamat_usaha`, `status`, `penyebab_kematian`, `tanggal_kematian`, `lokasi_kematian`, `nama_ortu_lk`, `nama_ortu_pr`, `createdAt`, `validatedAt`, `validatedBy`, `approvedAt`, `approvedBy`, `rejectedAt`, `rejectedBy`, `filesSurat`, `sendAt`) VALUES
-(1, 1, '1234567891011121', 'Anggraini Agustin Saputri', 'anggrainiagustinks@gmail.com', 'sktm-66766733329c4.png', '1212', 'Kasmaaran', '2024-06-06', '1212', '1212', 'L', 'asda', NULL, NULL, NULL, '', NULL, NULL, NULL, NULL, NULL, '2024-06-06 22:22:24', '2024-06-29 15:48:53', NULL, '2024-06-30 19:49:00', 2, NULL, NULL, 'SKTM-1234567891011121-668158de09acd.pdf', '2024-06-30 19:49:26'),
+(1, 1, '1234567891011121', 'Anggraini Agustin Saputri', 'anggrainiagustinks@gmail.com', 'sktm-66766733329c4.png', '1212', 'Kasmaaran', '2024-06-06', '1212', '1212', 'L', 'asda', NULL, NULL, NULL, '', NULL, NULL, NULL, NULL, NULL, '2024-06-06 22:22:24', '2024-06-29 15:48:53', NULL, NULL, NULL, NULL, NULL, NULL, NULL),
 (2, 2, '1234567891011121', 'Frengky 2', 'frengkysky645@gmail.com', 'skd-66631080efa7a.png', '1212', 'Rantau Panjang', '2024-06-07', 'asdasd', 'Islam', 'P', 'Rantau Panjang', NULL, NULL, NULL, 'BN', NULL, NULL, NULL, NULL, NULL, '2024-06-07 20:38:20', '2024-06-30 14:27:59', 1, NULL, NULL, NULL, NULL, NULL, NULL),
 (3, 3, '1234567891011121', 'Frengky 3', 'frengkysky645@gmail.com', 'sku-66631080efa7a.png', '1212', 'Rantau Panjang', '2024-06-07', 'asdasd', 'Islam', 'L', 'Kasmaran', 'Minjam Bank', 'Cucian Uang', 'Rantau Panjang', 'N', NULL, NULL, NULL, NULL, NULL, '2024-06-07 20:52:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(4, 4, '1234567891011121', 'Sifulani', 'Kona@gmail.com', 'skk-6663131066a8f.png', '1212', 'Talang', '2024-06-07', 'Petani', 'Islam', 'P', 'Talang', NULL, NULL, NULL, 'N', '', '2024-06-07T21:02', 'Talang ubi', NULL, NULL, '2024-06-07 21:02:56', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(5, 5, '1234567891011121', 'Frengky 5', 'frengkysky645@gmail.com', 'spn-666315ea6d42f.pdf', '081258401008', 'Rantau Panjang', '2024-06-07', 'Web Developer', 'Islam', 'L', 'Rantau Panjang', NULL, NULL, NULL, 'BN', NULL, NULL, NULL, 'Saian', 'Huzami', '2024-06-07 21:15:06', NULL, NULL, NULL, NULL, NULL, NULL, 'SKPN-1234567891011121-668137c4c0099.pdf', NULL),
+(4, 4, '1234567891011121', 'Sifulani', 'Kona@gmail.com', 'skk-6663131066a8f.png', '1212', 'Talang', '2024-06-07', 'Petani', 'Islam', 'P', 'Talang', NULL, NULL, NULL, 'N', 'Tanjal', '2024-06-07T21:02', 'Talang ubi', NULL, NULL, '2024-06-07 21:02:56', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(5, 5, '1234567891011121', 'Frengky 5', 'frengkysky645@gmail.com', 'spn-666315ea6d42f.pdf', '081258401008', 'Rantau Panjang', '2024-06-07', 'Web Developer', 'Islam', 'L', 'Rantau Panjang', NULL, NULL, NULL, 'BN', NULL, NULL, NULL, 'Saian', 'Huzami', '2024-06-07 21:15:06', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
 (6, 1, '1234567891011121', 'Sifulani', 'frengkysky645@gmail.com', 'sktm-66766733329c4.png', '081258401008', 'Rantau Panjang', '2024-06-22', 'Web Developer', 'Islam', 'L', 'Rantau Panjang', NULL, NULL, NULL, 'BN', NULL, NULL, NULL, NULL, NULL, '2024-06-22 12:54:59', '2024-06-22 12:55:19', 1, NULL, NULL, NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
@@ -192,7 +192,7 @@ CREATE TABLE `user` (
 
 INSERT INTO `user` (`id`, `nama`, `email`, `username`, `password`, `level`, `foto`, `createdAt`, `lastLogin`, `deletedAt`) VALUES
 (1, 'Anggraini Agustin Saputri', 'anggrainiagustinks@gmail.com', 'putri', '$2y$10$QjmpG07nIUgBQ9J/sluRCO/6kGigdnDfhYbjKqW.rpCKCGiKgnMv.', 2, '66652f40a6c1a.jpeg', '2024-06-22 12:26:30', '2024-06-30 14:27:40', NULL),
-(2, 'Fahrul Rozi S.Pd', 'kades@gmail.com', 'kades', '$2y$10$QjmpG07nIUgBQ9J/sluRCO/6kGigdnDfhYbjKqW.rpCKCGiKgnMv.', 1, '66091bafcc01e.png', '2024-06-22 12:43:28', '2024-06-30 14:28:42', NULL);
+(2, 'Fahrul Rozi S.Pd', 'kades@gmail.com', 'kades', '$2y$10$QjmpG07nIUgBQ9J/sluRCO/6kGigdnDfhYbjKqW.rpCKCGiKgnMv.', 1, '66091bafcc01e.png', '2024-06-22 12:43:28', '2024-07-01 19:46:00', NULL);
 
 -- --------------------------------------------------------
 
