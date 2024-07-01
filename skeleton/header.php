@@ -40,7 +40,7 @@ include './admin/skeleton/config/controller.php';
       height: 100vh;
       position: relative;
       /* background: url("skeleton/assets/img/hero-bg.jpg") top center; */
-      background: url("skeleton/assets/img/poltek.jpg") top center;
+      background: url("skeleton/assets/img/bg-depan.png") top center;
       background-size: cover;
       position: relative;
     }

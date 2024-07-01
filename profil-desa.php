@@ -17,7 +17,7 @@ $visi_misi = query("SELECT * FROM visi_misi WHERE 1=1")[0];
         <div class="section-title">
           <div class="row">
             <div class="col-lg-4">
-              <img src="./skeleton/assets/img/poltek.jpg" alt="Profil" width="100%" height="100%">
+              <img src="./skeleton/assets/img/<?= $sejarah['picture']; ?>" alt="Profil" width="100%" height="100%">
             </div>
             <div class="col-lg-8">
             <h2>Profil Desa</h2>
