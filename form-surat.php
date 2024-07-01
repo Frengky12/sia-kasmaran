@@ -10,12 +10,12 @@ $surat = query("SELECT * FROM `ms_surat` WHERE 1=1 AND id = $id")[0];
 if (isset($_POST['submit-sktm'])) {
   if (insert_surat_sktm($_POST) > 0) {
       echo "<script>
-      alert('Data berhail ditambahkan...');
+      alert('Data berhasil ditambahkan...');
           document.location.href = 'index.php';
         </script>";
   } else {
       echo "<script>
-      alert('Data berhail ditambahkan...');
+      alert('Data berhasil ditambahkan...');
           document.location.href = 'form-surat.php';
         </script>";
   }
@@ -24,12 +24,12 @@ if (isset($_POST['submit-sktm'])) {
 if (isset($_POST['surat-domisili'])) {
   if (insert_surat_domisili($_POST) > 0) {
       echo "<script>
-      alert('Data berhail ditambahkan...');
+      alert('Data berhasil ditambahkan...');
           document.location.href = 'index.php';
         </script>";
   } else {
       echo "<script>
-      alert('Data berhail ditambahkan...');
+      alert('Data berhasil ditambahkan...');
           document.location.href = 'form-surat.php';
         </script>";
   }
@@ -38,12 +38,12 @@ if (isset($_POST['surat-domisili'])) {
 if (isset($_POST['surat-sku'])) {
   if (insert_surat_usaha($_POST) > 0) {
       echo "<script>
-      alert('Data berhail ditambahkan...');
+      alert('Data berhasil ditambahkan...');
           document.location.href = 'index.php';
         </script>";
   } else {
       echo "<script>
-      alert('Data berhail ditambahkan...');
+      alert('Data berhasil ditambahkan...');
           document.location.href = 'form-surat.php';
         </script>";
   }
@@ -53,12 +53,12 @@ if (isset($_POST['surat-sku'])) {
 if (isset($_POST['surat-kematian'])) {
   if (insert_surat_kematian($_POST) > 0) {
       echo "<script>
-      alert('Data berhail ditambahkan...');
+      alert('Data berhasil ditambahkan...');
           document.location.href = 'index.php';
         </script>";
   } else {
       echo "<script>
-      alert('Data berhail ditambahkan...');
+      alert('Data berhasil ditambahkan...');
           document.location.href = 'form-surat.php';
         </script>";
   }
@@ -68,12 +68,12 @@ if (isset($_POST['surat-kematian'])) {
 if (isset($_POST['surat-nikah'])) {
   if (insert_surat_nikah($_POST) > 0) {
       echo "<script>
-      alert('Data berhail ditambahkan...');
+      alert('Data berhasil ditambahkan...');
           document.location.href = 'index.php';
         </script>";
   } else {
       echo "<script>
-      alert('Data berhail ditambahkan...');
+      alert('Data berhasil ditambahkan...');
           document.location.href = 'form-surat.php';
         </script>";
   }
@@ -151,7 +151,7 @@ if (isset($_POST['surat-nikah'])) {
                     <div class="form-group col-lg-6 mt-4">
                       <label for="jenKel"><b>Jenis Kelamin</b></label>
                       <select class="form-select" name="jenKel" id="jenKel" aria-label="Default select example">
-                        <option selected>Pilih jenis kelamain...</option>
+                        <option selected>Pilih jenis kelamin...</option>
                         <option value="L">Laki-laki</option>
                         <option value="P">Perempuan</option>
                       </select>
@@ -258,7 +258,7 @@ if (isset($_POST['surat-nikah'])) {
                     <div class="form-group col-lg-6 mt-4">
                       <label for="jenKel"><b>Jenis Kelamin</b></label>
                       <select class="form-select" name="jenKel" id="jenKel" aria-label="Default select example">
-                        <option selected>Pilih jenis kelamain...</option>
+                        <option selected>Pilih jenis kelamin...</option>
                         <option value="L">Laki-laki</option>
                         <option value="P">Perempuan</option>
                       </select>
@@ -362,7 +362,7 @@ if (isset($_POST['surat-nikah'])) {
                     <div class="form-group col-lg-6 mt-4">
                       <label for="jenKel"><b>Jenis Kelamin</b></label>
                       <select class="form-select" name="jenKel" id="jenKel" aria-label="Default select example">
-                        <option selected>Pilih jenis kelamain...</option>
+                        <option selected>Pilih jenis kelamin...</option>
                         <option value="L">Laki-laki</option>
                         <option value="P">Perempuan</option>
                       </select>
@@ -485,7 +485,7 @@ if (isset($_POST['surat-nikah'])) {
                     <div class="form-group col-lg-6 mt-4">
                       <label for="jenKel"><b>Jenis Kelamin</b></label>
                       <select class="form-select" name="jenKel" id="jenKel" aria-label="Default select example">
-                        <option selected>Pilih jenis kelamain...</option>
+                        <option selected>Pilih jenis kelamin...</option>
                         <option value="L">Laki-laki</option>
                         <option value="P">Perempuan</option>
                       </select>
@@ -609,7 +609,7 @@ if (isset($_POST['surat-nikah'])) {
                     <div class="form-group col-lg-6 mt-4">
                       <label for="jenKel"><b>Jenis Kelamin</b></label>
                       <select class="form-select" name="jenKel" id="jenKel" aria-label="Default select example">
-                        <option selected>Pilih jenis kelamain...</option>
+                        <option selected>Pilih jenis kelamin...</option>
                         <option value="L">Laki-laki</option>
                         <option value="P">Perempuan</option>
                       </select>

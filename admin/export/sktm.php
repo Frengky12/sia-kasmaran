@@ -107,7 +107,7 @@ $pdf->Cell(0,10,'Kepala Desa Kasmaran',0,1,'C');
 $pdf->Ln(0);
 // Add signature image
 // $pdf->SetX(80);
-$pdf->Image('../public/image/img/signature.jpg', 135, $pdf->GetY(), 28); // Adjust the path and position accordingly
+$pdf->Image('../public/image/img/signature.png', 135, $pdf->GetY(), 40); // Adjust the path and position accordingly
 $pdf->Ln(30);
 
 

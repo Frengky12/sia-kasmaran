@@ -6,12 +6,12 @@ include 'skeleton/header.php';
 if (isset($_POST['submit'])) {
   if (tambah_informasi($_POST) > 0) {
       echo "<script>
-      alert('Data berhail ditambahkan...');
+      alert('Data berhasil ditambahkan...');
           document.location.href = 'informasi.php';
         </script>";
   } else {
       echo "<script>
-      alert('Data berhail ditambahkan...');
+      alert('Data gagal ditambahkan...');
           document.location.href = 'tambah-informasi.php';
         </script>";
   }

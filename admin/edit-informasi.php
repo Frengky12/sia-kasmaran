@@ -9,7 +9,7 @@ $berita = query("SELECT * FROM informasi WHERE id = $id")[0];
 if (isset($_POST['submit'])) {
   if (edit_informasi($_POST) > 0) {
       echo "<script>
-      alert('Data berhail diedit...');
+      alert('Data berhasil diedit...');
           document.location.href = 'informasi.php';
         </script>";
   } else {

@@ -11,12 +11,12 @@ include 'skeleton/header.php';
 if (isset($_POST['submit'])) {
     if (tambah_akun($_POST) > 0) {
         echo "<script>
-        alert('Data berhail ditambahkan...');
+        alert('Data berhasil ditambahkan...');
             document.location.href = 'akun.php';
           </script>";
     } else {
         echo "<script>
-        alert('Data berhail ditambahkan...');
+        alert('Data gagal ditambahkan...');
             document.location.href = 'tambah-akun.php';
           </script>";
     }
